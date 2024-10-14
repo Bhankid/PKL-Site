@@ -1,3 +1,17 @@
+const sidebar = document.querySelector(".sidebar");
+const toggleButton = document.querySelector("#open");
+const closeButton = document.querySelector(".close");
+
+toggleButton.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+  sidebar.classList.remove("close");
+});
+
+closeButton.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+  sidebar.classList.toggle("close");
+});
+
 let slideIndex = 0;
 const slides = document.querySelectorAll(".slide");
 const dots = document.querySelectorAll(".dot");

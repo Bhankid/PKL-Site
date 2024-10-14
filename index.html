@@ -10,20 +10,32 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <script src="script.js" defer></script>
     <title>PranKriz Logistics</title>
 </head>
 
 <body>
     <div class="navbar">
-        <img alt="PranKriz Logistics Logo" height="50" src="pkl logo.jpg" width="100" /> <span class="name"><span>P</span>hran<span>K</span>riz <span>L</span>ogistics</span>
-        <ul>
+        <img alt="PranKriz Logistics Logo" height="50" src="pkl logo.jpg" width="100" /> <span
+            class="name"><span>P</span>hran<span>K</span>riz <span>L</span>ogistics</span>
+        <ul class="sidebar">
+            <li><i class="fa-solid fa-xmark close" id="close"></i></li>
             <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT US</a></li>
             <li><a href="#">SERVICES</a></li>
+            <li><a href="#">ABOUT US</a></li>
             <li><a href="#">CONTACT US</a></li>
+            <li><a class="track-shipment side-track" href="#">TRACK SHIPMENT</a></li>
         </ul>
-        <a class="track-shipment" href="#">TRACK SHIPMENT</a>
+        <ul>
+            <lid><a class="hideOnMobile" href="#">HOME</a></lid>
+            <lid><a class="hideOnMobile" href="#">SERVICES</a></lid>
+            <lid><a class="hideOnMobile" href="#">ABOUT US</a></lid>
+            <lid><a class="hideOnMobile" href="#">CONTACT US</a></lid>
+            <lid><i class="fa-solid fa-bars open" id="open"></i></lid>
+        </ul>
+        <a class="track-shipment hideOnMobile" href="#">TRACK SHIPMENT</a>
     </div>
     <div class="slider">
         <div class="slides">
@@ -38,8 +50,7 @@
                 </video>
             </div>
             <div class="slide">
-                <img alt="Truck on the road 3" height="1080"
-                    src="https://i.postimg.cc/SKxNTK0N/lgst5.webp"
+                <img alt="Truck on the road 3" height="1080" src="https://i.postimg.cc/SKxNTK0N/lgst5.webp"
                     width="1920" />
             </div>
             <div class="slide">
@@ -95,10 +106,244 @@
             <div class="dot" onclick="currentSlide(7)">
             </div>
             <div class="dot" onclick="currentSlide(8)">
+            </div>
         </div>
     </div>
+
+
+    <h2 class="service-header" data-aos="fade-right" data-aos-duration="3000">Our Services</h2>
+    <div class="container" data-aos="fade-up" data-aos-duration="3000">
+        <div class="card" data-aos="fade-down-right">
+            <img alt="Front view of a modern house with a yellow light at the entrance" height="400" src="img1.jpg"
+                width="600" />
+            <div class="card-content">
+                <div class="card-title">
+                    Door to door
+                </div>
+                <div class="card-location">
+                    Ghana to Australia
+                </div>
+                <div class="card-icons">
+                    <i class="fa-brands fa-x-twitter">
+                    </i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook-f">
+                    </i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-instagram">
+                    </i>
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="card" data-aos="fade-down-left">
+            <img alt="Front view of a blue and white house with a garage" height="400" src="img2.jpg" width="600" />
+            <div class="card-content">
+                <div class="card-title">
+                    Custom clearance
+                </div>
+                <div class="card-location">
+                    Ghana to Australia
+                </div>
+                <div class="card-icons">
+                    <i class="fa-brands fa-x-twitter">
+                    </i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook-f">
+                    </i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-instagram">
+                    </i>
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="card" data-aos="flip-left">
+            <img alt="Front view of a white house with a brown door and plants" height="400" src="img3.jpg"
+                width="600" />
+            <div class="card-content">
+                <div class="card-title">
+                    Consolidated
+                </div>
+                <div class="card-location">
+                    Ghana to Australia
+                </div>
+                <div class="card-icons">
+                    <i class="fa-brands fa-x-twitter">
+                    </i>
+                    <i class="fab fa-whatsapp"></i>
+                    </i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-facebook-f">
+                    </i>
+                    <i class="fab fa-instagram">
+                    </i>
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </div>
+            </div>
+        </div>
     </div>
 
+
+    <div class="container" data-aos="fade-up" data-aos-duration="3000">
+        <div class="card" data-aos="flip-right">
+            <img alt="Front view of a modern house with a yellow light at the entrance" height="400" src="img1.jpg"
+                width="600" />
+            <div class="card-content">
+                <div class="card-title">
+                    Warehousing
+                </div>
+                <div class="card-location">
+                    Ghana to Australia
+                </div>
+                <div class="card-icons">
+                    <i class="fa-brands fa-x-twitter">
+                    </i>
+                    </i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook-f">
+                        <i class="fab fa-tiktok"></i>
+                    </i>
+                    <i class="fab fa-instagram">
+                    </i>
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in">
+            <img alt="Front view of a blue and white house with a garage" height="400" src="img2.jpg" width="600" />
+            <div class="card-content">
+                <div class="card-title">
+                    Packing
+                </div>
+                <div class="card-location">
+                    Ghana to Australia
+                </div>
+                <div class="card-icons">
+                    <i class="fa-brands fa-x-twitter">
+                    </i>
+                    </i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook-f">
+                    </i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-instagram">
+                    </i>
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in-up">
+            <img alt="Front view of a white house with a brown door and plants" height="400" src="img3.jpg"
+                width="600" />
+            <div class="card-content">
+                <div class="card-title">
+                    Moving
+                </div>
+                <div class="card-location">
+                    Ghana to Australia
+                </div>
+                <div class="card-icons">
+                    <i class="fa-brands fa-x-twitter">
+                    </i>
+                    </i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook-f">
+                        <i class="fab fa-tiktok"></i>
+                    </i>
+                    <i class="fab fa-instagram">
+                    </i>
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" data-aos="fade-up" data-aos-duration="3000">
+        <div class="card" data-aos="zoom-in-down">
+            <img alt="Front view of a modern house with a yellow light at the entrance" height="400" src="img1.jpg"
+                width="600" />
+            <div class="card-content">
+                <div class="card-title">
+                    Delivery
+                </div>
+                <div class="card-location">
+                    Ghana to Australia
+                </div>
+                <div class="card-icons">
+                    <i class="fa-brands fa-x-twitter">
+                    </i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook-f">
+                    </i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-instagram">
+                    </i>
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in-left">
+            <img alt="Front view of a blue and white house with a garage" height="400" src="img2.jpg" width="600" />
+            <div class="card-content">
+                <div class="card-title">
+                    Freight Forwarding
+                </div>
+                <div class="card-location">
+                    Ghana to Australia
+                </div>
+                <div class="card-icons">
+                    <i class="fa-brands fa-x-twitter">
+                    </i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook-f">
+                    </i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-instagram">
+                    </i>
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </div>
+            </div>
+        </div>
+        <div class="card" data-aos="zoom-in-right">
+            <img alt="Front view of a white house with a brown door and plants" height="400" src="img3.jpg"
+                width="600" />
+            <div class="card-content">
+                <div class="card-title">
+                    Supply Chain Management
+                </div>
+                <div class="card-location">
+                    Ghana to Australia
+                </div>
+                <div class="card-icons">
+                    <i class="fa-brands fa-x-twitter">
+                    </i>
+                    <i class="fab fa-whatsapp"></i>
+                    <i class="fab fa-facebook-f">
+                    </i>
+                    <i class="fab fa-tiktok"></i>
+                    <i class="fab fa-instagram">
+                    </i>
+                    <i class="fab fa-linkedin-in">
+                    </i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
