@@ -1,11 +1,23 @@
+* {
+   
+   
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+html,
+body {
+    overflow-x: hidden;
+}
 
-
- body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            min-height: 100vh;
-        }
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
         .navbar {
              position: fixed;
              top: 0;
@@ -57,8 +69,8 @@
             padding: 10px;
             list-style: none;
             margin: 0 auto;
-            padding-left: 40px;
-            margin-left: 300px;
+            padding-left: 50px;
+            margin-left: 40rem;
         }
         .hideOnMobile {
             margin: 0 auto;
@@ -102,8 +114,7 @@
           right: 0;
           height: 100vh;
           width: 70vw;
-          /* z-index: 999; */
-          background-color: hsla(183, 47%, 44%, 0.954);
+          background-color: hsla(183, 47%, 44%, 0.943);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.174),
               0 4px 8px rgba(0, 0, 0, 0.3);
           backdrop-filter: blur(10px);
@@ -113,14 +124,17 @@
           justify-content: flex-start;
           display: none !important;
           padding: 20px;
-          transform: translateX(-70vw);
+          transform: translateX(100%);
+           will-change: transform;
           transition: transform 1s ease-in-out;
+          z-index: 999;
       }
 
       .sidebar.open {
           display: block !important;
-           transform: translateX(0);
-          
+          transform: translateX(0);
+          will-change: transform;
+          transition: transform 0.5s ease-in-out;
       }
 
         .sidebar li {
@@ -134,7 +148,7 @@
        .sidebar li a {
            display: block;
            height: 100%;
-           line-height: 60px;
+           line-height: 50px;
            color: #fff;
            text-decoration: none;
            transition: background-color 0.3s ease;
@@ -172,13 +186,18 @@
         .close:hover {
             color: #ccc;
         }
+
+        /* Media Query for Tablet View */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 50vw;
+            }
+        }
         
         /* Mobile view (0px - 767px) */
         @media only screen and (max-width: 767px) {
             .sidebar {
-                position: fixed;
-                top: 0;
-                right: 0;
+                width: 90vw;
             }
            
             .hideOnMobile {
@@ -202,17 +221,20 @@
                 font-size: 1rem;
             }
 
-              .sidebar .open {
+              /* .sidebar .open {
                 display: block;
-            }
+            } */
               .open {
                 display: block !important;
                  color: hsl(0, 0%, 100%);
                  font-size: 1.4rem;
                  cursor: pointer;
                  position: absolute;
-                 padding-right: 80px;
+                 padding-right: 60px;
                  margin-right: 40px;
+             }
+             .sidebar.open~.open {
+                 display: none !important;
              }
 
               .sidebar li .side-track {
@@ -220,43 +242,45 @@
                 font-weight: 500;
                 padding: 2px 5px;
                 text-align: center;
-                width: 55%;
+                width: 90%;
              }
              
         }
         @media only screen and (max-width: 480px) {
             .open {
                position: absolute;
-               top: 20px;
-               right: -45px;
+               top: 25px;
+               right: -55px;
                font-size: 1rem;
             }
             .sidebar {
-                position: fixed;
-                top: 0;
-                right: 0;
-                z-index: 999;
+                 width: 90vw;
             }
              .sidebar li a {
                  display: block;
                  height: 100%;
                  line-height: 40px;
+                 font-family: 'Roboto', sans-serif;
                  transition: background-color 0.3s ease;
-                 font-size: 1rem;
+                 font-size: .8rem;
                  padding-left: 40px;
                  margin-left: 10px;
              }
              .sidebar li .side-track {
-                 font-size: .6rem;
+                 font-size: .8rem;
                  font-weight: 400;
-                 padding: 2px 5px;
+                 padding: 2px 10px;
                  text-align: center;
-                 width: 45%;
+                 width: 80%;
                  margin-left: 40px;
+                 white-space: nowrap;
              }
              .navbar .name {
                  font-size: .6rem;
-                 padding-left: 20px;
+                 padding-left: 30px;
+             }
+             .sidebar.open~.open {
+                 display: none !important;
              }
         }
 
@@ -265,6 +289,7 @@
             color: hsl(0, 0%, 100%);
             padding: 10px 30px;
             margin-right: 40px;
+            margin-left: 20px;
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
@@ -494,6 +519,8 @@
 
         .service-header {
             padding-top: 60px;
+            vertical-align: middle;
+            margin-top: 30px;
             font-size: 3rem;
             font-weight: 900;
             text-align: center;
@@ -616,3 +643,30 @@
                 /* Reduce margin for icons on mobile */
             }
         }
+
+       .read-more {
+        font-size: .9rem;
+           text-decoration: none;
+           color: #337ab7;
+           /* blue color */
+           transition: color 0.3s ease;
+       }
+
+       .read-more:hover {
+           color: #23527c;
+           /* darker blue color on hover */
+       }
+
+       .read-more::after {
+           content: "\2192";
+           /* right arrow */
+           margin-left: 5px;
+           font-size: 18px;
+           vertical-align: middle;
+       }
+
+       .read-more:hover::after {
+           margin-left: 10px;
+           /* move the arrow a bit to the right on hover */
+           transition: margin 0.3s ease;
+       }
