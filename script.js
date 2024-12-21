@@ -65,3 +65,34 @@ document.querySelector(".next").addEventListener("click", nextSlide);
 
 // Initialize the slideshow
 showSlides();
+
+// Get the button
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// Show the button when scrolling down
+window.onscroll = function() {
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / windowHeight) * 100;
+
+    // Show or hide the button based on scroll position and screen width
+    if (scrollTop > 100 && window.innerWidth > 768) { 
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+
+};
+
+// Scroll to top function
+scrollToTopBtn.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Smooth scroll effect
+    });
+});
+
+// Get the current year
+const currentYear = new Date().getFullYear();
+
+document.getElementById('current-year').textContent = currentYear;

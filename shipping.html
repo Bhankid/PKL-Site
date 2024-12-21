@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="shipping.css">
+    <title>Track Shipment</title>
+</head>
+
+<body>
+    <div class="track-shipment-container">
+        <a href="index.html" class="back-arrow">&#8592; Back to Home</a>
+        <h1>Track Your Shipment</h1>
+        <p>Enter Your Shipping Code Below to Track Your Goods.</p>
+        <div class="input-container">
+            <input type="text" id="shippingCode" placeholder="Enter your shipping code" required>
+            <button id="trackButton">Track Shipment</button>
+        </div>
+        <div id="trackingResult" class="tracking-result hidden">
+            <h2>Tracking Information</h2>
+            <p id="resultMessage"></p>
+            <div id="shipmentDetails" class="details"></div>
+            <button id="copyButton" class="copy-button hidden">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script src="shipping.js"></script>
+</body>
+
+</html>
