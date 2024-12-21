@@ -196,7 +196,8 @@ body {
         /* Mobile view (0px - 767px) */
         @media only screen and (max-width: 767px) {
             .sidebar {
-                width: 90vw;
+                width: 100vw;
+                margin-top: 2.8rem;
             }
            
             .hideOnMobile {
@@ -253,7 +254,7 @@ body {
                font-size: 1rem;
             }
             .sidebar {
-                 width: 90vw;
+                 width: 100vw;
             }
              .sidebar li a {
                  display: block;

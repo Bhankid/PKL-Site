@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>Admin Dashboard</h1>
+            <a href="logout.html" class="logout">Log Out</a>
+        </header>
+        <main>
+            <section class="upload-section">
+                <h2>Upload Images</h2>
+                <input type="file" id="imageUpload" accept="image/*">
+                <button id="uploadButton">Upload</button>
+            </section>
+
+            <section class="tracking-update-section">
+                <h2>Update Shipment Responses</h2>
+                <input type="text" id="shippingCode" placeholder="Enter Shipping Code" required>
+                <input type="text" id="shippingStatus" placeholder="Shipping Status" required>
+                <input type="date" id="estimatedArrival" placeholder="Estimated Arrival Date" required>
+                <input type="text" id="shippingLocation" placeholder="Shipping Location" required>
+                <input type="text" id="destinationName" placeholder="Destination Name" required>
+                <textarea id="shipmentDetails" placeholder="Update Shipment Details"></textarea>
+                <button id="updateButton">Update Shipment</button>
+            </section>
+
+            <section class="customer-section">
+                <h2>Add Client Details</h2>
+                <input type="text" id="clientName" placeholder="Client Name" required>
+                <input type="email" id="clientEmail" placeholder="Client Email" required>
+                <input type="text" id="clientPhone" placeholder="Client Phone" required>
+                <textarea id="clientAddress" placeholder="Client Address"></textarea>
+                <button id="addClientButton">Add Client</button>
+            </section>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+</body>
+
+</html>
