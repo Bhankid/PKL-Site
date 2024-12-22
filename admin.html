@@ -5,44 +5,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Admin Dashboard</title>
 </head>
 
 <body>
     <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <button class="toggle-button" id="toggleButton">
+                <i class="fas fa-times" id="closeIcon" style="display: none;"></i>
+                <i class="fas fa-bars" id="openIcon"></i>
+            </button>
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="#" class="sidebar-link" data-target="upload-section">Images</a></li>
+                <li><a href="#" class="sidebar-link" data-target="tracking-update-section">Shipment</a></li>
+                <li><a href="#" class="sidebar-link" data-target="customer-section">Clients</a></li>
+            </ul>
+        </aside>
         <header>
             <h1>Admin Dashboard</h1>
             <a href="logout.html" class="logout">Log Out</a>
         </header>
         <main>
-            <section class="upload-section">
-                <h2>Upload Images</h2>
-                <input type="file" id="imageUpload" accept="image/*">
-                <button id="uploadButton">Upload</button>
-            </section>
+            <!-- Update Button -->
+            <button id="updateButton" data-target="upload-section">Update</button>
+            
+            <!-- Modal Structure -->
+            <div id="uploadModal" class="modal" data-target="upload-section">
+                <div class="modal-content">
+                    <span class="close-button" id="closeModal">&times;</span>
+                    <h2>Upload Images</h2>
+                    <div class="upload-container">
+                        <input type="file" id="imageUpload" accept="image/*">
+                        <input type="text" id="imageDescription" placeholder="Enter Image Description" required>
+                        <input type="text" id="imageLocation" placeholder="Enter Location" required>
+                        <button id="uploadButton">Upload</button>
+                    </div>
+                </div>
+            </div>
+    <!-- Table to Display Uploaded Images -->
+    <section class="upload-section" id="upload-section">
+        <h2>Uploaded Images</h2>
+        <table id="uploadTable">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added here dynamically -->
+            </tbody>
+        </table>
+    </section>
 
-            <section class="tracking-update-section">
-                <h2>Update Shipment Responses</h2>
+    <!-- Update Shipment Button -->
+    <button id="openUpdateModal" style="display: none;">Update Shipment</button>
+
+<!-- Tracking Code Generation Section -->
+<div id="trackingCodeSection" style="display: none;"> <!-- Initially hidden -->
+    <div class="tracking-code-container">
+        <input type="text" id="trackingCodeInput" placeholder="Generated Tracking Code" readonly>
+        <button id="generateTrackingCodeButton">Generate Tracking Code</button>
+    </div>
+</div>
+    
+    <!-- Modal Structure for Updating Shipment -->
+    <div id="updateShipmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeUpdateModal">&times;</span>
+            <h2>Update Shipment Details</h2> <!-- Renamed modal title -->
+            <div class="update-container">
                 <input type="text" id="shippingCode" placeholder="Enter Shipping Code" required>
                 <input type="text" id="shippingStatus" placeholder="Shipping Status" required>
-                <input type="date" id="estimatedArrival" placeholder="Estimated Arrival Date" required>
+                <input type="date" id="estimatedArrival" required>
                 <input type="text" id="shippingLocation" placeholder="Shipping Location" required>
                 <input type="text" id="destinationName" placeholder="Destination Name" required>
                 <textarea id="shipmentDetails" placeholder="Update Shipment Details"></textarea>
-                <button id="updateButton">Update Shipment</button>
-            </section>
+                <button id="submitUpdateButton">Update Shipment</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Table to Display Updated Shipments -->
+    <section class="tracking-update-section" id="tracking-update-section">
+        <h2>Updated Shipments</h2>
+        <table id="shipmentTable">
+            <thead>
+                <tr>
+                    <th>Shipping Code</th>
+                    <th>Status</th>
+                    <th>Estimated Arrival</th>
+                    <th>Location</th>
+                    <th>Destination</th>
+                    <th>Details</th>
+                    <th>Actions</th> <!-- Column for Edit and Delete -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added here dynamically -->
+            </tbody>
+        </table>
+    </section>
 
-            <section class="customer-section">
-                <h2>Add Client Details</h2>
-                <input type="text" id="clientName" placeholder="Client Name" required>
-                <input type="email" id="clientEmail" placeholder="Client Email" required>
-                <input type="text" id="clientPhone" placeholder="Client Phone" required>
-                <textarea id="clientAddress" placeholder="Client Address"></textarea>
-                <button id="addClientButton">Add Client</button>
+            <!-- Add Client Button -->
+            <button id="openClientModal" style="display: none;">Add Client</button>
+            
+            <!-- Modal Structure for Adding Client -->
+            <div id="clientModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" id="closeClientModal">&times;</span>
+                    <h2>Add Client Details</h2>
+                    <div class="client-container">
+                        <input type="text" id="clientName" placeholder="Client Name" required>
+                        <input type="text" id="clientTrackingCode" placeholder="Tracking Code" required>
+                        <input type="email" id="clientEmail" placeholder="Client Email" required>
+                        <input type="text" id="clientPhone" placeholder="Client Phone" required>
+                        <textarea id="clientAddress" placeholder="Client Address"></textarea>
+                        <button id="addClientButton">Add Client</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Table to Display Clients -->
+            <section class="customer-section" id="customer-section">
+                <h2>Client List</h2>
+                <table id="clientTable">
+                    <thead>
+                        <tr>
+                            <th>Client Name</th>
+                            <th>Tracking Code</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Actions</th> <!-- Column for Edit and Delete -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be added here dynamically -->
+                    </tbody>
+                </table>
             </section>
         </main>
     </div>
     <script src="admin.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome for icons -->
 </body>
 
 </html>

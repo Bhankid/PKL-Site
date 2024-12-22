@@ -31,7 +31,7 @@ app.post("/upload", upload.single("image"), (req, res) => {
   res.json({ message: "Image uploaded successfully", file: req.file });
 });
 
-app.post("/update-shipment", (req, res) => {
+app.post("/shipping", (req, res) => {
   const {
     shippingCode,
     shippingStatus,

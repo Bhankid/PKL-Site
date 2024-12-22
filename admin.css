@@ -5,24 +5,151 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    display: flex;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+    display: flex;
+    width: 100%;
+    /* Adjust width based on sidebar */
+    transition: left 0.3s;
+    /* Smooth transition for width */
+    margin-left: 20vw;
+    /* Start aligned with the sidebar */
+}
+
+.sidebar {
+    width: 20vw;
     background-color: #f4f4f4;
-    color: #333;
-}
-
-.container {
-    max-width: 400px;
-    margin: 50px auto;
+    /* Light background color */
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    /* Padding around the sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    transition: width 0.3s;
+    /* Smooth transition for width */
+    position: fixed;
+    /* Fixed position */
+    top: 0;
+    /* Align to the top */
+    left: 0;
+    /* Align to the left */
+    height: 100%;
+    /* Full height */
+    overflow-y: auto;
+    /* Enable vertical scrolling if needed */
 }
 
-h1 {
+.sidebar h2 {
+    margin: 0 0 20px;
+    /* Margin below the heading */
+    font-size: 1.5rem;
+    /* Font size for the heading */
+    color: #333;
+    /* Dark color for the heading */
+}
+
+.sidebar ul {
+    list-style: none;
+    /* Remove default list styling */
+    padding: 0;
+    /* Remove padding */
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+    /* Margin between list items */
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    /* Remove underline from links */
+    color: #333;
+    /* Default text color */
+    padding: 10px 15px;
+    /* Padding for clickable area */
+    display: block;
+    /* Make the link fill the list item */
+    border-radius: 4px;
+    /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s;
+    /* Smooth transition for background and color */
+}
+
+.sidebar ul li a:hover {
+    background-color: #e0e0e0;
+    /* Light gray background on hover */
+    color: #27a357;
+    /* Change text color on hover */
+}
+
+/* Active tab styling */
+.sidebar ul li a.active {
+    background-color: #27a357;
+    /* Green background for active tab */
+    color: white;
+    /* White text for active tab */
+}
+
+.toggle-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+header {
+    padding: 20px;
+    background-color: #3e9a799a;
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 20vw;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: left 0.3s;
+}
+
+main {
+    padding: 20px;
+    flex: 3;
+    margin-top: 7vw;
+    transition: margin-left 0.3s;
+}
+
+/* Optional: Style for hiding the sidebar */
+.sidebar.collapsed {
+    width: 7vw;
+}
+
+.sidebar.collapsed ul {
+    display: none;
+}
+
+.sidebar.collapsed h2 {
+    display: none;
+}
+
+#closeIcon {
+    display: none;
+    color: hsl(0, 0%, 15%);
+}
+
+#openIcon {
+    display: inline;
+    color: hsl(0, 0%, 15%);
+}
+
+ header h1 {
     margin-bottom: 20px;
     color: hsl(183, 52%, 33%);
+    text-align: center;
 }
 
 .form-group {
@@ -52,23 +179,78 @@ button:hover {
     background-color: hsl(183, 52%, 40%);
 }
 
-.dashboard-container {
-    padding: 20px;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
 .upload-section,
 .tracking-update-section {
     margin-bottom: 20px;
-    padding: 15px;
+    padding: 20px;
     background-color: #e9ecef;
     border-radius: 8px;
+    text-align: center;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-section h2 {
+    color: hsl(183, 52%, 33%);
+    /* Main heading color */
+    margin-bottom: 20px;
+    /* Space below heading */
+    font-size: 1.8rem;
+    /* Font size for heading */
+}
+
+.upload-container {
+    display: flex;
+    /* Flexbox for alignment */
+    flex-direction: column;
+    /* Stack elements vertically */
+    align-items: center;
+    /* Center items */
+}
+
+.upload-container input[type="file"],
+.upload-container input[type="text"] {
+    padding: 10px;
+    /* Padding for input */
+    border: 2px dashed hsl(183, 52%, 33%);
+    /* Dashed border */
+    border-radius: 4px;
+    /* Rounded corners */
+    width: 80%;
+    /* Width of the input */
+    margin-bottom: 15px;
+    /* Space below input */
+    transition: border-color 0.3s;
+    /* Transition for border color */
+}
+
+.upload-container input[type="file"]:hover,
+.upload-container input[type="text"]:hover {
+    border-color: hsl(183, 79%, 24%);
+    /* Darker border on hover */
+}
+
+.upload-container button {
+    background-color: hsl(183, 52%, 33%);
+    /* Button background color */
+    color: white;
+    /* Button text color */
+    padding: 10px 20px;
+    /* Padding for button */
+    border: none;
+    /* No border */
+    border-radius: 4px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor */
+    transition: background-color 0.3s;
+    /* Transition for background color */
+    font-size: 1rem;
+    /* Font size for button */
+}
+
+.upload-container button:hover {
+    background-color: hsl(183, 79%, 24%);
+    /* Darker background on hover */
 }
 
 .customer-section {
@@ -83,10 +265,424 @@ header {
     margin-bottom: 10px;
 }
 
-@media (max-width: 600px) {
+#uploadTable {
+    width: 100%;
+    /* Make the table take the full width of the container */
+    border-collapse: collapse;
+    /* Collapse borders for a cleaner look */
+}
 
-    .container,
-    .dashboard-container {
-        width: 90%;
-    }
+#uploadTable th,
+#uploadTable td {
+    padding: 10px;
+    /* Add padding for better spacing */
+    text-align: left;
+    /* Align text to the left */
+    border: 1px solid #ccc;
+    /* Add a border to the cells */
+}
+
+#uploadTable th {
+    background-color: hsl(183, 52%, 33%);
+    /* Background color for headers */
+    color: white;
+    /* Text color for headers */
+}
+
+#uploadTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    /* Alternate row color for better readability */
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1000;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: 10% auto;
+    /* Center the modal vertically and horizontally */
+    padding: 20px;
+    background-color: #e9ecef;
+    /* Same background as upload section */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    width: 70%;
+    /* Set the width to 70% of the viewport */
+    max-width: 800px;
+    /* Optional: Set a maximum width for larger screens */
+    text-align: center;
+    /* Center text */
+}
+
+.modal-content h2 {
+    color: hsl(183, 52%, 33%);
+    /* Main heading color */
+    margin-bottom: 20px;
+    /* Space below heading */
+    font-size: 1.8rem;
+    /* Font size for heading */
+}
+
+.upload-container {
+    display: flex;
+    /* Flexbox for alignment */
+    flex-direction: column;
+    /* Stack elements vertically */
+    align-items: center;
+    /* Center items */
+}
+
+.upload-container input[type="file"],
+.upload-container input[type="text"] {
+    padding: 10px;
+    /* Padding for input */
+    border: 2px dashed hsl(183, 52%, 33%);
+    /* Dashed border */
+    border-radius: 4px;
+    /* Rounded corners */
+    width: 80%;
+    /* Width of the input */
+    margin-bottom: 15px;
+    /* Space below input */
+    transition: border-color 0.3s;
+    /* Transition for border color */
+}
+
+.upload-container input[type="file"]:hover,
+.upload-container input[type="text"]:hover {
+    border-color: hsl(183, 79%, 24%);
+    /* Darker border on hover */
+}
+
+#updateButton {
+    margin-bottom: 10px;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+}
+.upload-container button {
+    background-color: hsl(183, 52%, 33%);
+    /* Button background color */
+    color: white;
+    /* Button text color */
+    padding: 10px 20px;
+    border: none;
+    /* No border */
+    border-radius: 4px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor */
+    transition: background-color 0.3s;
+    /* Transition for background color */
+    font-size: 1rem;
+    /* Font size for button */
+}
+
+.upload-container button:hover {
+    background-color: hsl(183, 79%, 24%);
+    /* Darker background on hover */
+}
+
+.close-button {
+    color: #aaa;
+    /* Gray color */
+    float: right;
+    /* Float to the right */
+    font-size: 28px;
+    /* Font size */
+    font-weight: bold;
+    /* Bold */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    /* Change color on hover */
+    text-decoration: none;
+    /* No underline */
+    cursor: pointer;
+    /* Pointer cursor */
+}
+
+#openUpdateModal {
+    margin-bottom: 10px;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1000;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black w/ opacity */
+}
+
+.modal-content {
+    margin: 10% auto;
+    /* Center the modal vertically and horizontally */
+    padding: 20px;
+    background-color: #e9ecef;
+    /* Same background as upload section */
+    border-radius: 8px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    width: 70%;
+    /* Set the width to 70% of the viewport */
+    max-width: 800px;
+    /* Optional: Set a maximum width for larger screens */
+    text-align: center;
+    /* Center text */
+}
+
+.modal-content h2 {
+    color: hsl(183, 52%, 33%);
+    /* Main heading color */
+    margin-bottom: 20px;
+    /* Space below heading */
+    font-size: 1.8rem;
+    /* Font size for heading */
+}
+
+.update-container {
+    display: flex;
+    /* Flexbox for alignment */
+    flex-direction: column;
+    /* Stack elements vertically */
+    align-items: center;
+    /* Center items */
+}
+
+.update-container input[type="text"],
+.update-container input[type="date"],
+.update-container textarea {
+    padding: 10px;
+    /* Padding for input */
+    border: 2px dashed hsl(183, 52%, 33%);
+    /* Dashed border */
+    border-radius: 4px;
+    /* Rounded corners */
+    width: 80%;
+    /* Width of the input */
+    margin-bottom: 15px;
+    /* Space below input */
+    transition: border-color 0.3s;
+    /* Transition for border color */
+}
+
+.update-container input[type="text"]:hover,
+.update-container input[type="date"]:hover,
+.update-container textarea:hover {
+    border-color: hsl(183, 79%, 24%);
+    /* Darker border on hover */
+}
+
+.update-container button {
+    background-color: hsl(183, 52%, 33%);
+    /* Button background color */
+    color: white;
+    /* Button text color */
+    padding: 10px 20px;
+    /* Padding for button */
+    border: none;
+    /* No border */
+    border-radius: 4px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor */
+    transition: background-color 0.3s;
+    /* Transition for background color */
+    font-size: 1rem;
+    /* Font size for button */
+}
+
+.update-container button:hover {
+    background-color: hsl(183, 79%, 24%);
+    /* Darker background on hover */
+}
+
+.close-button {
+    color: #aaa;
+    /* Gray color */
+    float: right;
+    /* Float to the right */
+    font-size: 28px;
+    /* Font size */
+    font-weight: bold;
+    /* Bold */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    /* Change color on hover */
+    text-decoration: none;
+    /* No underline */
+    cursor: pointer;
+    /* Pointer cursor */
+}
+
+#shipmentTable {
+    width: 100%;
+    /* Make the table take the full width of the container */
+    border-collapse: collapse;
+    /* Collapse borders for a cleaner look */
+    margin-top: 20px;
+    /* Space above the table */
+}
+
+#shipmentTable th,
+#shipmentTable td {
+    padding: 10px;
+    /* Add padding for better spacing */
+    text-align: left;
+    /* Align text to the left */
+    border: 1px solid #ccc;
+    /* Add a border to the cells */
+}
+
+#shipmentTable th {
+    background-color: hsl(183, 52%, 33%);
+    /* Background color for headers */
+    color: white;
+    /* Text color for headers */
+}
+
+#shipmentTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+    /* Alternate row color for better readability */
+}
+
+#shipmentTable tbody tr:hover {
+    background-color: #e0e0e0;
+    /* Highlight row on hover */
+}
+
+/* Client */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#clientTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#clientTable th,
+#clientTable td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+#clientTable th {
+    background-color: hsl(183, 52%, 33%);
+    color: white;
+}
+
+#clientTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#clientTable tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+
+/* Tracking code generator */
+.tracking-code-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#trackingCodeInput {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid hsl(183, 52%, 33%);
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#generateTrackingCodeButton {
+    background-color: hsl(183, 52%, 33%);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#generateTrackingCodeButton:hover {
+    background-color: hsl(183, 79%, 24%);
 }
