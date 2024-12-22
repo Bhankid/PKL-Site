@@ -13,84 +13,91 @@ body {
 .dashboard-container {
     display: flex;
     width: 100%;
-    /* Adjust width based on sidebar */
     transition: left 0.3s;
-    /* Smooth transition for width */
     margin-left: 20vw;
-    /* Start aligned with the sidebar */
 }
 
 .sidebar {
     width: 20vw;
     background-color: #f4f4f4;
-    /* Light background color */
     padding: 20px;
-    /* Padding around the sidebar */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
     transition: width 0.3s;
-    /* Smooth transition for width */
     position: fixed;
-    /* Fixed position */
     top: 0;
-    /* Align to the top */
     left: 0;
-    /* Align to the left */
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    /* Full height */
     overflow-y: auto;
-    /* Enable vertical scrolling if needed */
 }
 
 .sidebar h2 {
     margin: 0 0 20px;
-    /* Margin below the heading */
     font-size: 1.5rem;
-    /* Font size for the heading */
     color: #333;
-    /* Dark color for the heading */
+}
+
+.logout-container {
+    margin-top: auto;
+    padding: 10px;
+}
+
+.logout {
+    color: red;
+    text-decoration: none;
+     position: relative;
+     transition: color 0.3s ease;
+}
+
+.logout:hover {
+    color: darkred;
+}
+
+/* Adding a modern underline effect using a pseudo-element */
+.logout::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: red;
+    width: 0;
+    transition: width 0.3s ease;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.logout:hover::after {
+    width: 100%;
 }
 
 .sidebar ul {
     list-style: none;
-    /* Remove default list styling */
     padding: 0;
-    /* Remove padding */
 }
 
 .sidebar ul li {
     margin: 10px 0;
-    /* Margin between list items */
 }
 
 .sidebar ul li a {
     text-decoration: none;
-    /* Remove underline from links */
     color: #333;
-    /* Default text color */
     padding: 10px 15px;
-    /* Padding for clickable area */
     display: block;
-    /* Make the link fill the list item */
     border-radius: 4px;
-    /* Rounded corners */
     transition: background-color 0.3s, color 0.3s;
-    /* Smooth transition for background and color */
 }
 
 .sidebar ul li a:hover {
     background-color: #e0e0e0;
-    /* Light gray background on hover */
     color: #27a357;
-    /* Change text color on hover */
 }
 
 /* Active tab styling */
 .sidebar ul li a.active {
     background-color: #27a357;
-    /* Green background for active tab */
     color: white;
-    /* White text for active tab */
 }
 
 .toggle-button {

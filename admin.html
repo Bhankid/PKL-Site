@@ -24,15 +24,18 @@
                 <li><a href="#" class="sidebar-link" data-target="tracking-update-section">Shipment</a></li>
                 <li><a href="#" class="sidebar-link" data-target="customer-section">Clients</a></li>
             </ul>
+            <div class="logout-container">
+                <a href="logout.html" class="logout"><i class="fas fa-sign-out-alt"></i> Log Out</a> <!-- Moved to bottom -->
+            </div>
         </aside>
         <header>
-            <h1>Admin Dashboard</h1>
-            <a href="logout.html" class="logout">Log Out</a>
+            <h1 style="text-align: center;">Admin Dashboard</h1>
+           
         </header>
         <main>
             <!-- Update Button -->
             <button id="updateButton" data-target="upload-section">Update</button>
-            
+
             <!-- Modal Structure -->
             <div id="uploadModal" class="modal" data-target="upload-section">
                 <div class="modal-content">
@@ -46,76 +49,76 @@
                     </div>
                 </div>
             </div>
-    <!-- Table to Display Uploaded Images -->
-    <section class="upload-section" id="upload-section">
-        <h2>Uploaded Images</h2>
-        <table id="uploadTable">
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Description</th>
-                    <th>Location</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Rows will be added here dynamically -->
-            </tbody>
-        </table>
-    </section>
+            <!-- Table to Display Uploaded Images -->
+            <section class="upload-section" id="upload-section">
+                <h2>Uploaded Images</h2>
+                <table id="uploadTable">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Description</th>
+                            <th>Location</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </section>
 
-    <!-- Update Shipment Button -->
-    <button id="openUpdateModal" style="display: none;">Update Shipment</button>
+            <!-- Update Shipment Button -->
+            <button id="openUpdateModal" style="display: none;">Update Shipment</button>
 
-<!-- Tracking Code Generation Section -->
-<div id="trackingCodeSection" style="display: none;"> <!-- Initially hidden -->
-    <div class="tracking-code-container">
-        <input type="text" id="trackingCodeInput" placeholder="Generated Tracking Code" readonly>
-        <button id="generateTrackingCodeButton">Generate Tracking Code</button>
-    </div>
-</div>
-    
-    <!-- Modal Structure for Updating Shipment -->
-    <div id="updateShipmentModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" id="closeUpdateModal">&times;</span>
-            <h2>Update Shipment Details</h2> <!-- Renamed modal title -->
-            <div class="update-container">
-                <input type="text" id="shippingCode" placeholder="Enter Shipping Code" required>
-                <input type="text" id="shippingStatus" placeholder="Shipping Status" required>
-                <input type="date" id="estimatedArrival" required>
-                <input type="text" id="shippingLocation" placeholder="Shipping Location" required>
-                <input type="text" id="destinationName" placeholder="Destination Name" required>
-                <textarea id="shipmentDetails" placeholder="Update Shipment Details"></textarea>
-                <button id="submitUpdateButton">Update Shipment</button>
+            <!-- Tracking Code Generation Section -->
+            <div id="trackingCodeSection" style="display: none;"> <!-- Initially hidden -->
+                <div class="tracking-code-container">
+                    <input type="text" id="trackingCodeInput" placeholder="Generated Tracking Code" readonly>
+                    <button id="generateTrackingCodeButton">Generate Tracking Code</button>
+                </div>
             </div>
-        </div>
-    </div>
-    
-    <!-- Table to Display Updated Shipments -->
-    <section class="tracking-update-section" id="tracking-update-section">
-        <h2>Updated Shipments</h2>
-        <table id="shipmentTable">
-            <thead>
-                <tr>
-                    <th>Shipping Code</th>
-                    <th>Status</th>
-                    <th>Estimated Arrival</th>
-                    <th>Location</th>
-                    <th>Destination</th>
-                    <th>Details</th>
-                    <th>Actions</th> <!-- Column for Edit and Delete -->
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Rows will be added here dynamically -->
-            </tbody>
-        </table>
-    </section>
+
+            <!-- Modal Structure for Updating Shipment -->
+            <div id="updateShipmentModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" id="closeUpdateModal">&times;</span>
+                    <h2>Update Shipment Details</h2> <!-- Renamed modal title -->
+                    <div class="update-container">
+                        <input type="text" id="shippingCode" placeholder="Enter Shipping Code" required>
+                        <input type="text" id="shippingStatus" placeholder="Shipping Status" required>
+                        <input type="date" id="estimatedArrival" required>
+                        <input type="text" id="shippingLocation" placeholder="Shipping Location" required>
+                        <input type="text" id="destinationName" placeholder="Destination Name" required>
+                        <textarea id="shipmentDetails" placeholder="Update Shipment Details"></textarea>
+                        <button id="submitUpdateButton">Update Shipment</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table to Display Updated Shipments -->
+            <section class="tracking-update-section" id="tracking-update-section">
+                <h2>Updated Shipments</h2>
+                <table id="shipmentTable">
+                    <thead>
+                        <tr>
+                            <th>Tracking Code</th>
+                            <th>Status</th>
+                            <th>Estimated Arrival</th>
+                            <th>Location</th>
+                            <th>Destination</th>
+                            <th>Details</th>
+                            <th>Actions</th> <!-- Column for Edit and Delete -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </section>
 
             <!-- Add Client Button -->
             <button id="openClientModal" style="display: none;">Add Client</button>
-            
+
             <!-- Modal Structure for Adding Client -->
             <div id="clientModal" class="modal">
                 <div class="modal-content">
@@ -131,7 +134,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Table to Display Clients -->
             <section class="customer-section" id="customer-section">
                 <h2>Client List</h2>
