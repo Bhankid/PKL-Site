@@ -11,9 +11,35 @@
       const data = await response.json();
 
       if (response.ok) {
-        alert(data.message); // Show success message
+        toastr.success(data.message); // Show success message
         window.location.href = "/api/login"; // Redirect to login page
       } else {
-        alert(data.error || "An error occurred during logout");
+        toastr.error(data.error || "An error occurred during logout"); // Use Toastr for error notification
       }
     });
+
+
+
+    // Toastr js
+// Initialize an object to store cart items
+let cartItems = {};
+
+// Configure Toastr options
+toastr.options = {
+  closeButton: true,
+  debug: false,
+  newestOnTop: false,
+  progressBar: true,
+  positionClass: "toast-top-right",
+  preventDuplicates: false,
+  onclick: null,
+  showDuration: "200",
+  hideDuration: "400",
+  timeOut: "1500",
+  extendedTimeOut: "800",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "slideDown",
+  hideMethod: "fadeOut",
+  escapeHtml: false,
+};

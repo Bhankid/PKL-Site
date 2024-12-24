@@ -6,9 +6,6 @@ const sequelize = require("./src/config/database");
 const User = require("./src/models/User");
 require("dotenv").config();
 
-const signupRoute = require("./src/routes/signup");
-const loginRoute = require("./src/routes/login");
-const logoutRoute = require("./src/routes/logout");
 
 const app = express();
 
@@ -16,13 +13,31 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, "public")));
 
-// API Routes
+const signupRoute = require("./src/routes/signup");
+const loginRoute = require("./src/routes/login");
+const logoutRoute = require("./src/routes/logout");
+const imageRoute = require("./src/routes/image");
+const shipmentRoute = require("./src/routes/shipment");
+const clientRoute = require("./src/routes/client");
+const contactRoutes = require('./src/routes/contact');
+
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "public")));
+// Serve uploaded images
+app.use("/uploads", express.static(path.join(__dirname, "uploads"))); 
+
+// Routes
 app.use("/api/signup", signupRoute);
 app.use("/api/login", loginRoute);
 app.use("/api/logout", logoutRoute);
+app.use("/api/images", imageRoute);
+app.use("/api/shipments", shipmentRoute);
+app.use("/api/clients", clientRoute);
+app.use("/api/contact", contactRoutes);
 
 // const isAuthenticated = (req, res, next) => {
 //   if (req.session && req.session.userId) {
@@ -34,8 +49,14 @@ app.use("/api/logout", logoutRoute);
 
 
 // Serve index.html as the homepage
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+app.get("/", async (req, res) => {
+  try {
+    const images = await Image.findAll(); // Fetch all images from the database
+    res.render("index", { images }); // Render index.html and pass images
+  } catch (error) {
+    console.error("Error fetching images:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 // Serve admin.html at the /api/admin route

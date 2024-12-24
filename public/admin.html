@@ -4,10 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="/admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- jQuery for Toastr -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Toastr CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <!-- Toastr JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <title>Admin Dashboard</title>
 </head>
 
@@ -76,6 +83,11 @@
                         <!-- Rows will be added here dynamically -->
                     </tbody>
                 </table>
+                <div id="uploadPagination" class="pagination">
+                    <button id="prevUpload" class="pagination-button" disabled>Previous</button>
+                    <span id="uploadPageInfo">Page 1 of 1</span>
+                    <button id="nextUpload" class="pagination-button" disabled>Next</button>
+                </div>
             </section>
 
             <!-- Update Shipment Button -->
@@ -93,7 +105,7 @@
             <div id="updateShipmentModal" class="modal">
                 <div class="modal-content">
                     <span class="close-button" id="closeUpdateModal">&times;</span>
-                    <h2>Update Shipment Details</h2> <!-- Renamed modal title -->
+                    <h2>Update Shipment Details</h2> 
                     <div class="update-container">
                         <input type="text" id="shippingCode" placeholder="Enter Shipping Code" required>
                         <input type="text" id="shippingStatus" placeholder="Shipping Status" required>
@@ -118,13 +130,18 @@
                             <th>Location</th>
                             <th>Destination</th>
                             <th>Details</th>
-                            <th>Actions</th> <!-- Column for Edit and Delete -->
+                            <th>Actions</th> 
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Rows will be added here dynamically -->
                     </tbody>
                 </table>
+                <div id="shipmentPagination" class="pagination">
+                    <button id="prevShipment" class="pagination-button" disabled>Previous</button>
+                    <span id="shipmentPageInfo">Page 1 of 1</span>
+                    <button id="nextShipment" class="pagination-button" disabled>Next</button>
+                </div>
             </section>
 
             <!-- Add Client Button -->
@@ -164,10 +181,15 @@
                         <!-- Rows will be added here dynamically -->
                     </tbody>
                 </table>
+                <div id="clientPagination" class="pagination">
+                    <button id="prevClient" class="pagination-button" disabled>Previous</button>
+                    <span id="clientPageInfo">Page 1 of 1</span>
+                    <button id="nextClient" class="pagination-button" disabled>Next</button>
+                </div>
             </section>
         </main>
     </div>
-    <script src="admin.js"></script>
+    <script src="/admin.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 

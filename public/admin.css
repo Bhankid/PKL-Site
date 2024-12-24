@@ -176,6 +176,10 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: left 0.3s;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+     0 4px 8px rgba(0, 0, 0, 0.3);
+     backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
 }
 
 main {
@@ -747,4 +751,175 @@ button:hover {
 
 #generateTrackingCodeButton:hover {
     background-color: hsl(183, 79%, 24%);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.pagination-button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 15vw;
+    }
+
+    .dashboard-container {
+        margin-left: 15vw;
+    }
+
+    header {
+        left: 15vw;
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 25vw;
+    }
+
+    .dashboard-container {
+        margin-left: 25vw;
+    }
+
+    header {
+        left: 25vw;
+    }
+
+    .sidebar.collapsed {
+        width: 10vw;
+    }
+
+    .sidebar.collapsed ul {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: relative
+    }
+
+    .dashboard-container {
+        margin-left: 0;
+        flex-direction: column;
+    }
+
+    header {
+        left: 0;
+        width: 100%;
+    }
+
+    .sidebar.collapsed {
+        width: 100%;
+    }
+
+    .sidebar.collapsed ul {
+        display: block;
+    }
+
+    .toggle-button {
+        font-size: 18px;
+    }
+
+    .upload-container input[type="file"],
+    .upload-container input[type="text"],
+    .update-container input[type="text"],
+    .update-container input[type="date"],
+    .update-container textarea {
+        width: 90%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar h2 {
+        font-size: 1.2rem;
+    }
+
+    .sidebar ul li a {
+        padding: 8px 10px;
+    }
+
+    .dialog-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .dialog-content h3 {
+        font-size: 1rem;
+    }
+
+    .upload-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .upload-container button,
+    .update-container button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .close-button {
+        font-size: 24px;
+    }
+}
+
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: hsl(183, 52%, 33%);
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        /* Enable horizontal scrolling */
+        white-space: nowrap;
+        /* Prevent text wrapping */
+    }
+
+    th,
+    td {
+        display: inline-block;
+        /* Stack cells */
+        min-width: 120px;
+        /* Set a minimum width for cells */
+    }
 }
