@@ -211,10 +211,11 @@
         <div class="marquee">
             <div class="marquee-content">
                 <img src="https://i.postimg.cc/qR32wfgw/hf.jpg" alt="Partner 1" class="partner-logo" />
-                <img src="https://i.postimg.cc/GhqTk3qr/lg.jpg" alt="Partner 2" class="partner-logo" />
-                <img src="https://i.postimg.cc/Zq089vS1/ff.jpg" alt="Partner 3" class="partner-logo" />
-                <img src="https://i.postimg.cc/QdfgxkRQ/fh.jpg" alt="Partner 4" class="partner-logo" />
-                <img src="https://i.postimg.cc/JhhqbdbY/hp.jpg" alt="Partner 5" class="partner-logo" />
+                <img src="https://i.postimg.cc/FKqsHw2L/N.png" alt="Partner 2" class="partner-logo" />
+                <img src="https://i.postimg.cc/VkfNGqqd/p.png" alt="Partner 3" class="partner-logo" />
+                <img src="https://i.postimg.cc/zDw5sLXW/C.png" alt="Partner 4" class="partner-logo" />
+                <img src="https://i.postimg.cc/dtqvwqLf/Pi.png" alt="Partner 5" class="partner-logo" />
+                <img src="https://i.postimg.cc/Dw0T4BQd/G.jpg" alt="Partner 5" class="partner-logo" />
             </div>
         </div>
     </div>
@@ -624,9 +625,24 @@
             <div class="form-field">
                 <input type="time" id="appointmentTime" name="appointmentTime" required class="input-field">
             </div>
+            <div class="form-field">
+                <label for="appointmentReason">Reason for Appointment:</label>
+            <select id="appointmentReason" name="appointmentReason" required class="input-field">
+                <option value="" disabled selected>Select a reason</option>
+                <option value="door_to_door">Door to Door Service</option>
+                <option value="custom_clearance">Custom Clearance</option>
+                <option value="consolidated_shipping">Consolidated Shipping</option>
+                <option value="warehousing">Warehousing</option>
+                <option value="packing">Packing Services</option>
+                <option value="moving">Moving Services</option>
+                <option value="delivery">Delivery Services</option>
+                <option value="freight_forwarding">Freight Forwarding</option>
+                <option value="air_freight">Air Freight</option> 
+                <option value="ocean_freight">Ocean Freight</option>
+            </select>
+            </div>
             <button type="submit" class="submit-button">Book Appointment</button>
         </form>
-
         </div>
 
         <!-- Success Modal -->

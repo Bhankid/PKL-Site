@@ -258,8 +258,13 @@ document
     event.preventDefault();
 
     // Collect form data
-    const { clientName, clientEmail, appointmentDate, appointmentTime } =
-      event.target.elements;
+    const {
+      clientName,
+      clientEmail,
+      appointmentDate,
+      appointmentTime,
+      appointmentReason,
+    } = event.target.elements;
 
     // Create a message for WhatsApp
     const message =
@@ -267,7 +272,8 @@ document
       `Name: ${clientName.value}\n` +
       `Email: ${clientEmail.value}\n` +
       `Date: ${appointmentDate.value}\n` +
-      `Time: ${appointmentTime.value}\n`;
+      `Time: ${appointmentTime.value}\n` +
+      `Reason for Appointment: ${appointmentReason.value}\n`; // Include the selected reason
 
     const whatsappNumber = "233244664816";
 
