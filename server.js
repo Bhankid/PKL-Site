@@ -20,7 +20,7 @@ const logoutRoute = require("./src/routes/logout");
 const imageRoute = require("./src/routes/image");
 const shipmentRoute = require("./src/routes/shipment");
 const clientRoute = require("./src/routes/client");
-const contactRoutes = require('./src/routes/contact');
+const contactRoutes = require("./src/routes/contact");
 
 
 // Middleware

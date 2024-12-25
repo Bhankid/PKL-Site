@@ -1,3 +1,22 @@
+// let lastScrollTop = 0; // Variable to store the last scroll position
+// const navbar = document.querySelector(".navbar"); // Select the navbar
+// const contactBar = document.querySelector(".contact-bar"); // Select the contact bar
+
+// window.addEventListener("scroll", function () {
+//   const scrollTop = window.scrollY || document.documentElement.scrollTop; // Get current scroll position
+
+//   if (scrollTop > lastScrollTop) {
+//     // Scrolling down
+//     navbar.style.top = "-60px"; // Hide the navbar
+//     contactBar.style.top = "0"; // Keep the contact bar visible
+//   } else {
+//     // Scrolling up
+//     navbar.style.top = "40px"; // Show the navbar
+//     contactBar.style.top = "0"; // Keep the contact bar visible
+//   }
+//   lastScrollTop = scrollTop; // Update last scroll position
+// });
+
 const sidebar = document.querySelector(".sidebar");
 const toggleButton = document.querySelector("#open");
 const closeButton = document.querySelector(".close");
@@ -226,7 +245,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     <a href="https://facebook.com" target="_blank" aria-label="Facebook">
         <i class="fab fa-facebook-f"></i>
     </a>
-    <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+    <a href="https://www.tiktok.com/@phrankrizlogistics?_t=ZM-8sTxWo3BJqA&_r=1" target="_blank" aria-label="TikTok">
         <i class="fab fa-tiktok"></i>
     </a>
     <a href="https://instagram.com" target="_blank" aria-label="Instagram">
@@ -301,3 +320,152 @@ window.addEventListener("click", function (event) {
     modal.style.display = "none";
   }
 });
+
+const swiper = new Swiper(".swiper", {
+  // Set the direction to horizontal
+  direction: "horizontal",
+  loop: true,
+
+  // Autoplay configuration
+  autoplay: {
+    delay: 8000, // Delay in milliseconds (3000ms = 3 seconds)
+    disableOnInteraction: false, // Continue autoplay after user interactions
+  },
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true, // Make pagination bullets clickable
+  },
+
+  // Space between slides
+  spaceBetween: 10, // Space between slides in pixels
+
+  // Navigation arrows
+  // navigation: {
+  //   nextEl: ".swiper-button-next",
+  //   prevEl: ".swiper-button-prev",
+  // },
+
+  // And if we need scrollbar
+  // scrollbar: {
+  //   el: ".swiper-scrollbar",
+  // },
+});
+
+// Function to animate the counting effect
+function countUp(target, duration) {
+  let start = 0; // Starting number
+  const end = target; // Target number
+  const increment = Math.ceil(end / (duration / 1000)); // Calculate increment based on duration
+  const countElement = document.getElementById("clientCount");
+
+  const timer = setInterval(() => {
+    start += 1; // Increment by 1 for each interval
+    if (start > end) {
+      start = end; // Ensure it doesn't exceed the target
+      clearInterval(timer); // Stop the timer
+    }
+    countElement.textContent = start; // Update the displayed count
+  }, 1000 / 60); // 60 frames per second
+}
+
+// Function to start counting when the element is in view
+function startCounting() {
+  const countElement = document.getElementById("clientCount");
+  const target = 143; // Target number
+  const duration = 3000; // Duration in milliseconds
+
+  // Reset the count to 0 before starting the counting effect
+  countElement.textContent = "0";
+
+  countUp(target, duration); // Start the counting effect
+}
+
+// Intersection Observer options
+const options = {
+  root: null, // Use the viewport as the root
+  rootMargin: "0px", // No margin
+  threshold: 0.1, // Trigger when 10% of the element is visible
+};
+
+// Intersection Observer to detect when the counting section is in view
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      startCounting(); // Start counting when in view
+    }
+  });
+}, options); // Pass the options to the observer
+
+// Observe the counting section
+const clientCountSection = document.querySelector(".client-count");
+observer.observe(clientCountSection);
+
+// Toastr js
+// Initialize an object to store cart items
+let cartItems = {};
+
+// Configure Toastr options
+toastr.options = {
+  closeButton: true,
+  debug: false,
+  newestOnTop: false,
+  progressBar: true,
+  positionClass: "toast-top-right",
+  preventDuplicates: false,
+  onclick: null,
+  showDuration: "200",
+  hideDuration: "400",
+  timeOut: "1500",
+  extendedTimeOut: "800",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "slideDown",
+  hideMethod: "fadeOut",
+  escapeHtml: false,
+};
+
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    // Show loading state
+    const submitButton = event.target.querySelector('button[type="submit"]');
+    const spinner = event.target.querySelector(".spinner"); // Get the spinner element
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = "Sending...";
+    submitButton.disabled = true;
+    spinner.classList.remove("hidden"); // Show the spinner
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, message }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        toastr.error(error.error || "An error occurred."); // Use Toastr for error notification
+      } else {
+        const data = await response.json();
+        toastr.success(data.message); // Use Toastr for success notification
+        document.getElementById("contactForm").reset();
+      }
+    } catch (err) {
+      console.error("Fetch error:", err);
+      toastr.error("Something went wrong. Please try again."); // Use Toastr for error notification
+    } finally {
+      // Reset button state
+      submitButton.textContent = originalButtonText;
+      submitButton.disabled = false;
+      spinner.classList.add("hidden"); // Hide the spinner
+    }
+  });

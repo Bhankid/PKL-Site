@@ -10,15 +10,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- jQuery for Toastr -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <script src="script.js" defer></script>
     <title>PranKriz Logistics</title>
 </head>
 
 <body>
+    <!-- <div class="contact-bar">
+        <div class="container">
+            <div class="time">
+                <i class="icon clock-icon"></i>
+                <span>Mon - Fri / 08:00am - 5pm</span>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:enquiries@rachanslogistics.com" class="contact-link">
+                    <i class="icon mail-icon"></i>
+                    <span>enquiries@rachanslogistics.com</span>
+                </a>
+                <a href="tel:+233243870227" class="contact-link">
+                    <i class="icon phone-icon"></i>
+                    <span>+233 (0) 243 870227 | +233 (0) 303 217747</span>
+                </a>
+            </div>
+        </div>
+    </div> -->
     <div class="navbar">
         <img alt="PranKriz Logistics Logo" height="50" src="pkl logo.jpg" width="100" /> <span
             class="name"><span>P</span>hran<span>K</span>riz <span>L</span>ogistics</span>
@@ -39,7 +67,7 @@
         </ul>
         <a class="track-shipment hideOnMobile" href="shipping.html">TRACK SHIPMENT</a>
     </div>
-   
+
     <!-- <div class="slider">
         <div class="slides">
             <div class="slide">
@@ -108,42 +136,48 @@
 
     <div class="main">
         <ul class='main-slider'>
-            <li class='item'
-                style="background-image: url('https://i.postimg.cc/SKxNTK0N/lgst5.webp')">
+            <li class='item' style="background-image: url('https://i.postimg.cc/SKxNTK0N/lgst5.webp')">
                 <div class='content-1'>
                     <h2 class='title'>"Door to Door"</h2>
-                    <p class='description'> Comprehensive service that picks up your goods from your location and delivers them directly to the destination,
-                    ensuring a hassle-free experience. </p>
+                    <p class='description'> Comprehensive service that picks up your goods from your location and
+                        delivers them directly to the destination,
+                        ensuring a hassle-free experience. </p>
                     <button class="slider-btn">
                         <a href="#contact">Contact Us</a>
                     </button>
                 </div>
             </li>
-            <li class='item' style="background-image: url('https://storage.googleapis.com/a1aa/image/JuJZtDkezWydCqZC9nD0SvBvAjbSlUFf0AG0KvUVehtzNLNnA.jpg')">
+            <li class='item'
+                style="background-image: url('https://storage.googleapis.com/a1aa/image/JuJZtDkezWydCqZC9nD0SvBvAjbSlUFf0AG0KvUVehtzNLNnA.jpg')">
                 <div class='content-1'>
                     <h2 class='title'>"Consolidated Shipping"</h2>
-                    <p class='description'> Combining multiple shipments into one to reduce costs and improve efficiency, ideal for businesses looking to save on
-                    shipping expenses.</p>
+                    <p class='description'> Combining multiple shipments into one to reduce costs and improve
+                        efficiency, ideal for businesses looking to save on
+                        shipping expenses.</p>
                     <button class="slider-btn">
                         <a href="#contact">Contact Us</a>
                     </button>
                 </div>
             </li>
-            <li class='item' style="background-image: url('https://storage.googleapis.com/a1aa/image/ZqFpJeRaEE0TZ60689wipBfI1WTaZ1UGUAFfKBv1fcl3bWaOB.jpg')">
+            <li class='item'
+                style="background-image: url('https://storage.googleapis.com/a1aa/image/ZqFpJeRaEE0TZ60689wipBfI1WTaZ1UGUAFfKBv1fcl3bWaOB.jpg')">
                 <div class='content-1'>
                     <h2 class='title'>"Moving"</h2>
-                    <p class='description'> Full-service moving solutions that include packing, loading, transporting, and unloading your belongings, ensuring a
-                    smooth transition to your new location. </p>
+                    <p class='description'> Full-service moving solutions that include packing, loading, transporting,
+                        and unloading your belongings, ensuring a
+                        smooth transition to your new location. </p>
                     <button class="slider-btn">
                         <a href="#contact">Contact Us</a>
                     </button>
                 </div>
             </li>
-            <li class='item' style="background-image: url('https://storage.googleapis.com/a1aa/image/BrmJXvXYJvZsIJLptbFlyweIjYpmcgKKLv9fPzigQAd6mlmTA.jpg')">
+            <li class='item'
+                style="background-image: url('https://storage.googleapis.com/a1aa/image/BrmJXvXYJvZsIJLptbFlyweIjYpmcgKKLv9fPzigQAd6mlmTA.jpg')">
                 <div class='content-1'>
                     <h2 class='title'>"Custom Clearance"</h2>
                     <p class='description'>
-                        Expert handling of all customs documentation and regulations to ensure your goods pass through customs smoothly and
+                        Expert handling of all customs documentation and regulations to ensure your goods pass through
+                        customs smoothly and
                         without delays.
                     </p>
                     <button class="slider-btn">
@@ -151,11 +185,13 @@
                     </button>
                 </div>
             </li>
-            <li class='item' style="background-image: url('https://storage.googleapis.com/a1aa/image/ZC1kqHiLIIrdAxA8tcoUhVII85kmuedtMNYrbu8kiCZemlmTA.jpg')">
+            <li class='item'
+                style="background-image: url('https://storage.googleapis.com/a1aa/image/ZC1kqHiLIIrdAxA8tcoUhVII85kmuedtMNYrbu8kiCZemlmTA.jpg')">
                 <div class='content-1'>
                     <h2 class='title'>"Warehousing"</h2>
                     <p class='description'>
-                        Secure storage solutions for your goods, offering inventory management and distribution services to streamline your
+                        Secure storage solutions for your goods, offering inventory management and distribution services
+                        to streamline your
                         supply chain.
                     </p>
                     <button class="slider-btn">
@@ -167,8 +203,9 @@
                 style="background-image: url('https://storage.googleapis.com/a1aa/image/TAbMypjSX77mBhxImVE4RVbmFKIVowi3e0yoNYE88MVfmlmTA.jpg')">
                 <div class='content-1'>
                     <h2 class='title'>"Packing Services"</h2>
-                    <p class='description'> Professional packing services that ensure your items are securely packed using high-quality materials to prevent damage
-                    during transit.</p>
+                    <p class='description'> Professional packing services that ensure your items are securely packed
+                        using high-quality materials to prevent damage
+                        during transit.</p>
                     <button class="slider-btn">
                         <a href="#contact">Contact Us</a>
                     </button>
@@ -178,8 +215,9 @@
                 style="background-image: url('https://storage.googleapis.com/a1aa/image/TAbMypjSX77mBhxImVE4RVbmFKIVowi3e0yoNYE88MVfmlmTA.jpg')">
                 <div class='content-1'>
                     <h2 class='title'>"Freight Forwarding"</h2>
-                    <p class='description'> Coordination of the shipment of goods from one destination to another, including all logistics involved in the
-                    transportation process.</p>
+                    <p class='description'> Coordination of the shipment of goods from one destination to another,
+                        including all logistics involved in the
+                        transportation process.</p>
                     <button class="slider-btn">
                         <a href="#contact">Contact Us</a>
                     </button>
@@ -189,7 +227,8 @@
                 style="background-image: url('https://storage.googleapis.com/a1aa/image/TAbMypjSX77mBhxImVE4RVbmFKIVowi3e0yoNYE88MVfmlmTA.jpg')">
                 <div class='content-1'>
                     <h2 class='title'>"Supply Chain Management"</h2>
-                    <p class='description'> Comprehensive management of the flow of goods and services, from raw materials to final delivery, optimizing efficiency and reducing costs.</p>
+                    <p class='description'> Comprehensive management of the flow of goods and services, from raw
+                        materials to final delivery, optimizing efficiency and reducing costs.</p>
                     <button class="slider-btn">
                         <a href="#contact">Contact Us</a>
                     </button>
@@ -203,23 +242,23 @@
     </div>
 
     <!-- Partners Section -->
-<section id="partners">
-    <h2 class="partners-header">
-        <span id="typing-effect"></span>
-    </h2>
-    <div class="partners-container">
-        <div class="marquee">
-            <div class="marquee-content">
-                <img src="https://i.postimg.cc/qR32wfgw/hf.jpg" alt="Partner 1" class="partner-logo" />
-                <img src="https://i.postimg.cc/FKqsHw2L/N.png" alt="Partner 2" class="partner-logo" />
-                <img src="https://i.postimg.cc/VkfNGqqd/p.png" alt="Partner 3" class="partner-logo" />
-                <img src="https://i.postimg.cc/zDw5sLXW/C.png" alt="Partner 4" class="partner-logo" />
-                <img src="https://i.postimg.cc/dtqvwqLf/Pi.png" alt="Partner 5" class="partner-logo" />
-                <img src="https://i.postimg.cc/Dw0T4BQd/G.jpg" alt="Partner 5" class="partner-logo" />
+    <section id="partners">
+        <h2 class="partners-header">
+            <span id="typing-effect"></span>
+        </h2>
+        <div class="partners-container">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <img src="https://i.postimg.cc/qR32wfgw/hf.jpg" alt="Partner 1" class="partner-logo" />
+                    <img src="https://i.postimg.cc/FKqsHw2L/N.png" alt="Partner 2" class="partner-logo" />
+                    <img src="https://i.postimg.cc/VkfNGqqd/p.png" alt="Partner 3" class="partner-logo" />
+                    <img src="https://i.postimg.cc/zDw5sLXW/C.png" alt="Partner 4" class="partner-logo" />
+                    <img src="https://i.postimg.cc/dtqvwqLf/Pi.png" alt="Partner 5" class="partner-logo" />
+                    <img src="https://i.postimg.cc/Dw0T4BQd/G.jpg" alt="Partner 5" class="partner-logo" />
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- <section id="services">
         <h2 class="service-header" data-aos="fade-right" data-aos-duration="3000">Our Services</h2>
@@ -463,11 +502,12 @@
         <img alt="Placeholder image" class="image" height="200" data-aos="fade-up-right"
             src="https://storage.googleapis.com/a1aa/image/Fj2fqBzxwn2ZO60ITPWaRqSQhxBfIoOdigB4ULe9sfeSTAf5E.jpg"
             width="200" />
-        <h1  data-aos="fade-left">
+        <h1 data-aos="fade-left">
             About Us
         </h1>
         <p>
-            We specialize in comprehensive logistics solutions from Ghana to Australia. Our services are designed to make
+            We specialize in comprehensive logistics solutions from Ghana to Australia. Our services are designed to
+            make
             your international move or shipping needs as smooth as possible.
         </p>
         <h2>
@@ -514,82 +554,199 @@
             </div>
         </div>
         <p class="last-para" data-aos="fade-up-left">
-            From the moment you decide to make the move, we are dedicated to providing exceptional service that encompasses every
-            detail of your relocation. Our journey begins with packing your belongings, where our skilled team meticulously
-            organizes and secures each item, ensuring that even your most delicate possessions are protected during transit. As we
-            navigate the complexities of customs clearance, we take on the responsibility of handling all necessary documentation
-            and compliance requirements, allowing you to rest easy knowing that your shipment is in capable hands. Once your items
-            have cleared customs, we ensure a seamless transition to the final stage of the process—delivery to your new home. Our
-            commitment to professionalism means that we approach every step with the utmost care, ensuring that each aspect of your
-            move is executed smoothly and efficiently. You can trust us to manage your relocation with the highest level of
+            From the moment you decide to make the move, we are dedicated to providing exceptional service that
+            encompasses every
+            detail of your relocation. Our journey begins with packing your belongings, where our skilled team
+            meticulously
+            organizes and secures each item, ensuring that even your most delicate possessions are protected during
+            transit. As we
+            navigate the complexities of customs clearance, we take on the responsibility of handling all necessary
+            documentation
+            and compliance requirements, allowing you to rest easy knowing that your shipment is in capable hands. Once
+            your items
+            have cleared customs, we ensure a seamless transition to the final stage of the process—delivery to your new
+            home. Our
+            commitment to professionalism means that we approach every step with the utmost care, ensuring that each
+            aspect of your
+            move is executed smoothly and efficiently. You can trust us to manage your relocation with the highest level
+            of
             expertise, leaving you free to focus on settling into your new environment.
         </p>
     </section>
 
+    <div class="reviews-container">
+        <section class="review" data-aos="fade-up-right">
+            <h2 class="review-title">Customer Reviews</h2>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="profile-icon">
+                            <img src="https://i.postimg.cc/kXKG6tDj/Frank.jpg" alt="Profile Icon" />
+                        </div>
+                        <div class="review-text">"I had an amazing experience with PranKriz Logistics! They handled my
+                            shipment
+                            from Ghana to Australia with utmost professionalism. The tracking system was accurate, and
+                            my goods
+                            arrived on time and in perfect condition. Highly recommend!"</div>
+                        <div class="author-name">- Samuel Osei, Jan 2024</div>
+                        <div class="star-rating">
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="profile-icon">
+                            <img src="https://i.postimg.cc/kXKG6tDj/Frank.jpg" alt="Profile Icon" />
+                        </div>
+                        <div class="review-text">"The team at PranKriz Logistics made my move so much easier. They took
+                            care of
+                            everything from packing to customs clearance. I was impressed with their attention to detail
+                            and
+                            customer service. Will definitely use them again!"</div>
+                        <div class="author-name">- Emily Johnson, Feb 2024</div>
+                        <div class="star-rating">
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="profile-icon">
+                            <img src="https://i.postimg.cc/kXKG6tDj/Frank.jpg" alt="Profile Icon" />
+                        </div>
+                        <div class="review-text">"I was nervous about shipping my valuable items internationally, but
+                            PranKriz
+                            Logistics exceeded my expectations. They provided excellent communication throughout the
+                            process,
+                            and my items arrived safely. Thank you!"</div>
+                        <div class="author-name">- Michael Brown, Mar 2024</div>
+                        <div class="star-rating">
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star">&#9733;</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="profile-icon">
+                            <img src="https://i.postimg.cc/kXKG6tDj/Frank.jpg" alt="Profile Icon" />
+                        </div>
+                        <div class="review-text">"Fantastic service! The staff were friendly and knowledgeable, and they
+                            helped
+                            me navigate the complexities of international shipping. My experience was smooth from start
+                            to
+                            finish. Highly satisfied!"</div>
+                        <div class="author-name">- Sarah Williams, Apr 2024</div>
+                        <div class="star-rating">
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="profile-icon">
+                            <img src="https://i.postimg.cc/kXKG6tDj/Frank.jpg" alt="Profile Icon" />
+                        </div>
+                        <div class="review-text">"PranKriz Logistics is my go-to for all my shipping needs. They offer
+                            competitive rates and reliable service. I appreciate their transparency and the ease of
+                            tracking my
+                            shipments online." </div>
+                        <div class="author-name">- David Mensah, May 2024</div>
+                        <div class=" star-rating">
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                            <span class="star filled">&#9733;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
 
-    <!-- Contact Section -->
-<section class="contact-section" id="contact">
-    <h2 class="contact-header">Contact Us</h2>
-    <div class="contact-container">
-       <div class="contact-form" data-aos="zoom-in-right">
-    <form action="http://localhost:3000/api/contact" method="POST">
-        <div class="form-group">
-            <!-- <label for="name">Name:</label> -->
-            <input type="text" id="name" name="name" placeholder="Enter name" required>
-        </div>
-        <div class="form-group">
-            <!-- <label for="email">Email:</label> -->
-            <input type="email" id="email" name="email" placeholder="Enter email" required>
-        </div>
-        <div class="form-group">
-            <!-- <label for="phone">Phone Number:</label> -->
-            <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
-        </div>
-        <div class="form-group">
-            <!-- <label for="message">Message:</label> -->
-            <textarea id="message" name="message" rows="5" placeholder="Your message for us" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-    </form>
-</div>
-        <div class="map" data-aos="zoom-in-left">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31755.508258100068!2d-0.02908010960323644!3d5.793565725152099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102081ddfd35c1ab%3A0x1697137a0475d7ae!2sAfienya!5e0!3m2!1sen!2sgh!4v1729224652138!5m2!1sen!2sgh"
-                width="570" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+        <!-- Counting Effect Section -->
+        <div class="client-count" data-aos="fade-up-left">
+            <h2 class="client-count-title">Number of Clients</h2>
+            <div class="count" id="clientCount">0</div>
         </div>
     </div>
-</section>
 
-<button class="scroll-to-top" id="scrollToTopBtn" title="Scroll to Top">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
-
-<!-- Footer Section -->
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-        </div>
-        <div class="footer-social">
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="YouTube"><i class="fab fa-tiktok"></i></a>
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="contact-header">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-form" data-aos="zoom-in-right">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <!-- <label for="name">Name:</label> -->
+                        <input type="text" id="name" name="name" placeholder="Enter name" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="email">Email:</label> -->
+                        <input type="email" id="email" name="email" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="phone">Phone Number:</label> -->
+                        <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="message">Message:</label> -->
+                        <textarea id="message" name="message" rows="5" placeholder="Your message for us"
+                            required></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                    <div class="spinner hidden"></div>
+                </form>
+            </div>
+            <div class="map" data-aos="zoom-in-left">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31755.508258100068!2d-0.02908010960323644!3d5.793565725152099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x102081ddfd35c1ab%3A0x1697137a0475d7ae!2sAfienya!5e0!3m2!1sen!2sgh!4v1729224652138!5m2!1sen!2sgh"
+                    width="570" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
-        <!-- <div class="consultation-booking"  data-aos="fade-right" data-aos-duration="3000">
+    </section>
+
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Scroll to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@phrankrizlogistics?_t=ZM-8sTxWo3BJqA&_r=1" aria-label="Twitter"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <!-- <div class="consultation-booking"  data-aos="fade-right" data-aos-duration="3000">
             <h4 class="booking-title">Reserve a Consultation Appointment</h4>
         <form action="your-server-endpoint" method="POST" class="booking-form">
             <div class="form-field">
@@ -609,57 +766,62 @@
         </form>
         </div> -->
 
-         <div class="consultation-booking"  data-aos="fade-right" data-aos-duration="3000">
-            <h4 class="booking-title">Reserve a Consultation Appointment</h4>
-        <form id="bookingForm" class="booking-form">
-            <div class="form-field">
-                <input type="text" id="clientName" name="clientName" placeholder="Enter your name" required class="input-field">
+            <div class="consultation-booking" data-aos="fade-right" data-aos-duration="3000">
+                <h4 class="booking-title">Reserve a Consultation Appointment</h4>
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-field">
+                        <input type="text" id="clientName" name="clientName" placeholder="Enter your name" required
+                            class="input-field">
+                    </div>
+                    <div class="form-field">
+                        <input type="email" id="clientEmail" name="clientEmail" placeholder="Enter your email" required
+                            class="input-field">
+                    </div>
+                    <div class="form-field">
+                        <input type="date" id="appointmentDate" name="appointmentDate" required class="input-field">
+                    </div>
+                    <div class="form-field">
+                        <input type="time" id="appointmentTime" name="appointmentTime" required class="input-field">
+                    </div>
+                    <div class="form-field">
+                        <label for="appointmentReason">Reason for Appointment:</label>
+                        <select id="appointmentReason" name="appointmentReason" required class="input-field">
+                            <option value="" disabled selected>Select a reason</option>
+                            <option value="door_to_door">Door to Door Service</option>
+                            <option value="custom_clearance">Custom Clearance</option>
+                            <option value="consolidated_shipping">Consolidated Shipping</option>
+                            <option value="warehousing">Warehousing</option>
+                            <option value="packing">Packing Services</option>
+                            <option value="moving">Moving Services</option>
+                            <option value="delivery">Delivery Services</option>
+                            <option value="freight_forwarding">Freight Forwarding</option>
+                            <option value="air_freight">Air Freight</option>
+                            <option value="ocean_freight">Ocean Freight</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-button">Book Appointment</button>
+                </form>
             </div>
-            <div class="form-field">
-                <input type="email" id="clientEmail" name="clientEmail" placeholder="Enter your email" required
-                    class="input-field">
-            </div>
-            <div class="form-field">
-                <input type="date" id="appointmentDate" name="appointmentDate" required class="input-field">
-            </div>
-            <div class="form-field">
-                <input type="time" id="appointmentTime" name="appointmentTime" required class="input-field">
-            </div>
-            <div class="form-field">
-                <label for="appointmentReason">Reason for Appointment:</label>
-            <select id="appointmentReason" name="appointmentReason" required class="input-field">
-                <option value="" disabled selected>Select a reason</option>
-                <option value="door_to_door">Door to Door Service</option>
-                <option value="custom_clearance">Custom Clearance</option>
-                <option value="consolidated_shipping">Consolidated Shipping</option>
-                <option value="warehousing">Warehousing</option>
-                <option value="packing">Packing Services</option>
-                <option value="moving">Moving Services</option>
-                <option value="delivery">Delivery Services</option>
-                <option value="freight_forwarding">Freight Forwarding</option>
-                <option value="air_freight">Air Freight</option> 
-                <option value="ocean_freight">Ocean Freight</option>
-            </select>
-            </div>
-            <button type="submit" class="submit-button">Book Appointment</button>
-        </form>
-        </div>
 
-        <!-- Success Modal -->
-        <div id="successModal" class="modal_1">
-            <div class="modal-content">
-                <span class="close-button" id="closeModal">&times;</span>
-                <h2>Appointment Booked Successfully!</h2>
-                <p>Your consultation appointment has been successfully scheduled. We look forward to seeing you!</p>
+            <!-- Success Modal -->
+            <div id="successModal" class="modal_1">
+                <div class="modal-content">
+                    <span class="close-button" id="closeModal">&times;</span>
+                    <h2>Appointment Booked Successfully!</h2>
+                    <p>Your consultation appointment has been successfully scheduled. We look forward to seeing you!</p>
+                </div>
             </div>
         </div>
-    </div>
-<div class="footer-bottom">
-    <p>&copy; <span id="current-year"></span> PranKriz Logistics. All rights reserved. | Developed by <a href="https://my-portfolio-git-main-bhankids-projects.vercel.app/" target="_blank" rel="noopener noreferrer" class="developer-link">Alfred</a></p>
-</div>
-</footer>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> PranKriz Logistics. All rights reserved. | Developed by <a
+                    href="https://my-portfolio-git-main-bhankids-projects.vercel.app/" target="_blank"
+                    rel="noopener noreferrer" class="developer-link">Alfred</a></p>
+        </div>
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         AOS.init();
