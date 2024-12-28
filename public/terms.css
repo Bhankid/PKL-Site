@@ -1,0 +1,196 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+header {
+    background: linear-gradient(135deg, #27a357, hsl(183, 52%, 33%));
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 60px;
+    margin-right: 15px;
+    border-radius: 50%;
+}
+
+main {
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2,
+h3 {
+    color: #1a535c;
+    margin-bottom: 15px;
+}
+
+/* Centering and Styling for h2 */
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 20px auto;
+    position: relative;
+    display: inline-block;
+    color: #1a535c;
+    padding-bottom: 10px;
+}
+
+/* Infinite Border Animation */
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(135deg, #27a357, hsl(183, 52%, 33%));
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: borderExpand 2s infinite ease-in-out;
+}
+
+/* Border Animation Keyframes */
+@keyframes borderExpand {
+
+    0%,
+    100% {
+        transform: scaleX(0);
+    }
+
+    50% {
+        transform: scaleX(1);
+    }
+}
+
+
+h3 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 15px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    padding-left: 5px;
+}
+
+.card {
+    background: linear-gradient(135deg, #209d501d, hsla(183, 56%, 38%, 0.267));
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #27a357, hsl(183, 52%, 33%));
+    color: #ffffff;
+    margin-top: 30px;
+}
+
+#backToTop {
+    background: #27a357;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#backToTop:hover {
+    background: hsl(183, 52%, 33%);
+}
+
+.card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.card ul li::before {
+    content: "✔";
+    color: #27a357;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 15px 0;
+    background-color: #1a535c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #27a357;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    #backToTop {
+        padding: 8px 12px;
+    }
+}

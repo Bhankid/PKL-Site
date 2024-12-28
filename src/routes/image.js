@@ -28,7 +28,6 @@ router.post("/", upload.single("image"), async (req, res) => {
   }
 });
 
-
 // GET route to retrieve all images
 const path = require("path");
 
@@ -54,9 +53,6 @@ router.get("/", async (req, res) => {
     res.status(500).json({ error: "Error fetching images" }); // Return an appropriate message
   }
 });
-
-
-
 
 // PUT route to update an image
 router.put("/:id", async (req, res) => {

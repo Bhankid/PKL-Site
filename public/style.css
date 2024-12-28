@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    --font-poppins: 'Poppins', sans-serif;
+}
+
 * {
 
     scroll-behavior: smooth;
@@ -16,7 +23,7 @@ body {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font-poppins);
 }
 
 
@@ -130,10 +137,10 @@ body {
 .navbar .name {
     position: absolute;
     color: #ffffff;
-    font-size: 24px;
+    font-size: 1.6rem;
     font-weight: 800;
-    margin-left: 25px;
-    padding-left: 85px;
+    margin-left: 20px;
+    padding-left: 70px;
     vertical-align: middle;
 }
 
@@ -151,12 +158,11 @@ body {
         } */
 .hideOnMobile {
     display: inline-block;
-    font-size: 18px;
+    font-size: 1.1rem;
     padding: 10px;
     list-style: none;
-    margin: 0 auto;
-    padding-left: 50px;
-    margin-left: 40rem;
+    padding-left: 20px;
+    margin-left: 20rem;
 }
 
 .hideOnMobile {
@@ -166,7 +172,7 @@ body {
 .hideOnMobile {
     color: hsl(0, 0%, 100%);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1rem;
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
@@ -354,7 +360,7 @@ body {
         display: block;
         height: 100%;
         line-height: 40px;
-        font-family: 'Roboto', sans-serif;
+        font-family: var(--font-poppins);
         transition: background-color 0.3s ease;
         font-size: .8rem;
         padding-left: 40px;
@@ -565,9 +571,9 @@ body {
 .main {
     position: relative;
     width: 100%;
-    height: 90vh;
+    height: 88vh;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    top: 40px;
+    top: 70px;
     bottom: 20px;
 }
 
@@ -671,7 +677,7 @@ body {
     color: white;
     border: 2px solid rgb(209, 206, 206);
     border-radius: 0.25rem;
-    padding: 0.75rem;
+    padding: 0.7rem;
     cursor: pointer;
 }
 
@@ -717,26 +723,26 @@ body {
 
 @media (min-width: 651px) and (max-width: 899px) {
     .content-1 .title {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         color: hsl(183, 52%, 33%);
         z-index: 999;
     }
 
     .slider-btn a {
         color: hsl(0, 0%, 100%);
-        font-size: 1rem;
+        font-size: .5rem;
     }
 
     .content-1 .description {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
     }
 
     .content-1 button {
-        font-size: 0.7rem;
+        font-size: 0.5rem;
     }
 
     .item {
-        width: 160px;
+        width: 40vw;
         height: 270px;
     }
 
@@ -756,6 +762,12 @@ body {
         left: calc(50% + 510px);
         opacity: 0;
     }
+    .slide-nav .btn--1 {
+        margin: 0 0.2rem;
+        padding: 0.7rem;
+        border-radius: 50%;
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 649px) {
@@ -770,23 +782,26 @@ body {
 
     .slider-btn a {
         color: hsl(0, 0%, 100%);
-        font-size: .8rem;
+        font-size: .5rem;
     }
 
-    .content .title {
-        font-size: 0.9rem;
+    .content-1 .title {
+        font-size: 1.3rem;
+        z-index: 9999;
     }
 
     .content-1 .description {
-        font-size: 0.65rem;
+        font-size: 0.8rem;
+        z-index: 9999;
+        text-align: left;
     }
 
     .content-1 button {
-        font-size: 0.6rem;
+        font-size: 0.5rem;
     }
 
     .item {
-        width: 130px;
+        width: 40vw;
         height: 220px;
     }
 
@@ -806,7 +821,80 @@ body {
         left: calc(50% + 420px);
         opacity: 0;
     }
+     .slide-nav .btn--1 {
+        margin-top: 5rem;
+         padding: 0.4rem;
+         border-radius: 50%;
+         cursor: pointer;
+     }
 }
+
+@media (max-width: 480px) {
+    .main {
+        position: relative;
+        width: 100%;
+        height: 90vh;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        top: 40px;
+        bottom: 15px;
+    }
+
+    .slider-btn a {
+        color: hsl(0, 0%, 100%);
+        font-size: 0.4rem;
+        padding: 3px;
+    }
+
+    .content-1 .title {
+        font-size: 1.1rem;
+        text-align: left;
+        z-index: 9999;
+        margin-bottom: 10px;
+    }
+
+    .content-1 .description {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        text-align: left;
+        z-index: 9999;
+        margin-bottom: 15px;
+    }
+
+    .content-1 button {
+        font-size: 0.4rem;
+        padding: 6px 10px;
+    }
+
+    .item {
+        width: 120px;
+        height: 210px;
+    }
+
+    .item:nth-child(3) {
+        left: 60%;
+    }
+
+    .item:nth-child(4) {
+        left: calc(60% + 140px);
+    }
+
+    .item:nth-child(5) {
+        left: calc(60% + 280px);
+    }
+
+    .item:nth-child(6) {
+        left: calc(60% + 380px);
+        opacity: 0;
+    }
+
+    .slide-nav .btn--1 {
+        margin-top: 20rem;
+        padding: 0.3rem;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+
 
 /* Media Query for Mobile View */
 @media (max-width: 768px) {
@@ -964,7 +1052,7 @@ body {
     color: hsl(183, 52%, 33%);
 }
 
-.container {
+.service-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -1067,16 +1155,14 @@ body {
 
 /* Styles for tablets */
 @media (max-width: 768px) {
-    .container {
+    .service-container {
         flex-direction: column;
         align-items: center;
     }
 
     .card {
         width: 80%;
-        /* Adjust the card width for tablets */
         margin-bottom: 20px;
-        /* Add space between cards */
     }
 }
 
@@ -1504,8 +1590,8 @@ button:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 25px;
     max-width: 20vw;
-    margin: 20px auto;
-    font-family: 'Arial', sans-serif;
+    margin: 5px auto;
+    font-family: var(--font-poppins);
 }
 
 .booking-title {
@@ -1720,7 +1806,7 @@ select.input-field:focus {
     border-radius: 6px;
     padding: 20px;
     max-width: 45vw;
-    margin-left: 40px;
+    margin-left: 30px;
     margin-bottom: 10px;
 }
 
@@ -1742,15 +1828,15 @@ select.input-field:focus {
 }
 
 .review-title {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 1.8rem;
+    font-weight: 800;
     color: #27a357;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
 .review-text {
-    font-size: 1rem;
+    font-size: .85rem;
     color: #333333;
     margin: 10px 0;
     padding-left: 50px;
@@ -1798,7 +1884,7 @@ select.input-field:focus {
 }
 
 .star {
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #ccc;
     margin-right: 5px;
 }
@@ -1811,24 +1897,24 @@ select.input-field:focus {
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px 60px;
-    width: 40vw;
-    height: 35vh;
-    margin-right: 40px;
+    padding: 20px 50px;
+    width: 28vw;
+    height: 45vh;
+    margin-left: 30px;
     text-align: center;
     position: relative;
 }
 
 
 .client-count-title {
-    font-size: 24px;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #27a357;
     margin-bottom: 15px;
 }
 
 .count {
-    font-size: 48px;
+    font-size: 6rem;
     font-weight: bold;
     color: #333;
     transition: all 0.5s ease;
@@ -1860,15 +1946,15 @@ select.input-field:focus {
 
     .client-count {
         width: 90vw;
-        margin-right: 0;
+        margin-inline: auto;
     }
 
     .client-count-title {
-        font-size: 20px;
+        font-size: 2rem;
     }
 
     .count {
-        font-size: 36px;
+        font-size: 4.5rem;
     }
 }
 
@@ -1898,15 +1984,15 @@ select.input-field:focus {
 
     .client-count {
         width: 95vw;
-        margin-right: 0;
+        margin-inline: auto;
     }
 
     .client-count-title {
-        font-size: 18px;
+        font-size: 1.6rem;
     }
 
     .count {
-        font-size: 30px;
+        font-size: 4rem;
     }
 }
 

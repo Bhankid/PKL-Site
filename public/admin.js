@@ -1,3 +1,26 @@
+
+// Configure Toastr options
+toastr.options = {
+  closeButton: true,
+  debug: false,
+  newestOnTop: false,
+  progressBar: true,
+  positionClass: "toast-top-right",
+  preventDuplicates: false,
+  onclick: null,
+  showDuration: "200",
+  hideDuration: "400",
+  timeOut: "1500",
+  extendedTimeOut: "800",
+  showEasing: "swing",
+  hideEasing: "linear",
+  showMethod: "slideDown",
+  hideMethod: "fadeOut",
+  escapeHtml: false,
+};
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   // Sidebar and section management
   const toggleButton = document.getElementById("toggleButton");
@@ -197,8 +220,8 @@ document.addEventListener("DOMContentLoaded", function () {
             method: "POST",
             body: formData,
           });
-          const data = await response.json();
-          alert(data.message || "Error uploading image");
+         const data = await response.json();
+         toastr.success(data.message || "Error uploading image");
         }
 
         // Clear input fields
@@ -331,6 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initial fetch of images
   fetchImages();
+  
 
   // Client modal handlers
   openClientModal.addEventListener("click", () => {
@@ -722,23 +746,3 @@ document.getElementById("noButton").addEventListener("click", function () {
 // Toastr js
 // Initialize an object to store cart items
 let cartItems = {};
-
-// Configure Toastr options
-toastr.options = {
-  closeButton: true,
-  debug: false,
-  newestOnTop: false,
-  progressBar: true,
-  positionClass: "toast-top-right",
-  preventDuplicates: false,
-  onclick: null,
-  showDuration: "200",
-  hideDuration: "400",
-  timeOut: "1500",
-  extendedTimeOut: "800",
-  showEasing: "swing",
-  hideEasing: "linear",
-  showMethod: "slideDown",
-  hideMethod: "fadeOut",
-  escapeHtml: false,
-};

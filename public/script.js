@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     <a href="https://wa.me" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+    <a href="https://www.facebook.com/share/176BmbANXW/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
         <i class="fab fa-facebook-f"></i>
     </a>
     <a href="https://www.tiktok.com/@phrankrizlogistics?_t=ZM-8sTxWo3BJqA&_r=1" target="_blank" aria-label="TikTok">
