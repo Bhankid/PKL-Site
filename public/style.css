@@ -27,87 +27,6 @@ body {
 }
 
 
-.contact-bar {
-    width: 100%;
-    background-color: #00A7E1;
-    /* Background color */
-    color: white;
-    /* Text color */
-    padding: 12px 16px;
-    /* Padding */
-    top: 0;
-    /* Align to the top */
-    left: 0;
-    z-index: 1000;
-}
-
-.container {
-    max-width: 1200px;
-    /* Maximum width */
-    margin: 0 auto;
-    /* Center the container */
-    display: flex;
-    /* Flexbox for layout */
-    flex-wrap: wrap;
-    /* Allow wrapping */
-    align-items: center;
-    /* Center items vertically */
-    justify-content: space-between;
-    /* Space between items */
-    gap: 16px;
-    /* Gap between items */
-    font-size: 14px;
-    /* Font size */
-}
-
-.time {
-    display: flex;
-    /* Flexbox for time section */
-    align-items: center;
-    /* Center items vertically */
-    gap: 8px;
-    /* Space between icon and text */
-}
-
-.contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-}
-
-.contact-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: white;
-    text-decoration: none;
-}
-
-.contact-link:hover {
-    color: #D1D1D1;
-}
-
-/* Icons styles (you can replace these with actual icon images or SVGs) */
-.icon {
-    width: 16px;
-    height: 16px;
-}
-
-.clock-icon {
-    background: url('path/to/clock-icon.svg') no-repeat center center;
-    background-size: contain;
-}
-
-.mail-icon {
-    background: url('path/to/mail-icon.svg') no-repeat center center;
-    background-size: contain;
-}
-
-.phone-icon {
-    background: url('path/to/phone-icon.svg') no-repeat center center;
-    background-size: contain;
-}
-
 .navbar {
     position: fixed;
     top: 0;
@@ -762,6 +681,7 @@ body {
         left: calc(50% + 510px);
         opacity: 0;
     }
+
     .slide-nav .btn--1 {
         margin: 0 0.2rem;
         padding: 0.7rem;
@@ -821,12 +741,13 @@ body {
         left: calc(50% + 420px);
         opacity: 0;
     }
-     .slide-nav .btn--1 {
+
+    .slide-nav .btn--1 {
         margin-top: 5rem;
-         padding: 0.4rem;
-         border-radius: 50%;
-         cursor: pointer;
-     }
+        padding: 0.4rem;
+        border-radius: 50%;
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 480px) {

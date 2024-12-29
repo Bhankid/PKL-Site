@@ -1,3 +1,19 @@
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => {
+        console.log(
+          "Service Worker registered with scope:",
+          registration.scope
+        );
+      })
+      .catch((error) => {
+        console.error("Service Worker registration failed:", error);
+      });
+  });
+}
+
 // let lastScrollTop = 0; // Variable to store the last scroll position
 // const navbar = document.querySelector(".navbar"); // Select the navbar
 // const contactBar = document.querySelector(".contact-bar"); // Select the contact bar
