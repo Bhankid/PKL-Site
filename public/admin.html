@@ -34,6 +34,7 @@
                 <li><a href="#" class="sidebar-link" data-target="upload-section">Images</a></li>
                 <li><a href="#" class="sidebar-link" data-target="tracking-update-section">Shipment</a></li>
                 <li><a href="#" class="sidebar-link" data-target="customer-section">Clients</a></li>
+                <li><a href="#" class="sidebar-link" data-target="gallery-section">Gallery</a></li>
             </ul>
             <div class="logout-container">
                 <a href="#" class="logout" id="logoutLink"><i class="fas fa-sign-out-alt"></i> Log Out</a>
@@ -191,6 +192,50 @@
                     <button id="nextClient" class="pagination-button" disabled>Next</button>
                 </div>
             </section>
+
+            
+            <!-- Add Gallery Button -->
+            <button id="openGalleryModal" style="display: none;">Add to Gallery</button>
+            
+            <!-- Modal Structure for Adding to Gallery -->
+            <div id="galleryModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" id="closeGalleryModal">&times;</span>
+                    <h2>Add to Gallery</h2>
+                    <div class="gallery-container">
+                        <input type="file" id="galleryUpload" accept="image/*, video/*">
+                        <input type="text" id="galleryDescription" placeholder="Enter Description" required>
+                        <select id="mediaType">
+                            <option value="image">Image</option>
+                            <option value="video">Video</option>
+                        </select>
+                        <button id="addGalleryButton">Add to Gallery</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Table to Display Gallery Items -->
+        <section class="gallery-section" id="gallery-section">
+            <h2>Gallery</h2>
+            <table id="galleryTable">
+                <thead>
+                    <tr>
+                        <th>Media</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added here dynamically -->
+                </tbody>
+            </table>
+            <div id="galleryPagination" class="pagination">
+                <button id="prevGallery" class="pagination-button" disabled>Previous</button>
+                <span id="galleryPageInfo">Page 1 of 1</span>
+                <button id="nextGallery" class="pagination-button" disabled>Next</button>
+            </div>
+        </section>
         </main>
     </div>
     <script src="/admin.js"></script>

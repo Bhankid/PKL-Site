@@ -923,3 +923,193 @@ tbody tr:hover {
         /* Set a minimum width for cells */
     }
 }
+
+
+/* Gallery Modal Styles */
+#galleryModal .modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+}
+
+#galleryModal .modal-content h2 {
+    font-size: 1.8rem;
+    color: hsl(183, 52%, 33%);
+    margin-bottom: 20px;
+}
+
+.gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-container input[type="file"],
+.gallery-container input[type="text"],
+.gallery-container select {
+    padding: 10px;
+    border: 2px dashed hsl(183, 52%, 33%);
+    border-radius: 4px;
+    width: 80%;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+.gallery-container input[type="file"]:hover,
+.gallery-container input[type="text"]:hover,
+.gallery-container select:hover {
+    border-color: hsl(183, 79%, 24%);
+}
+
+#addGalleryButton {
+    background-color: hsl(183, 52%, 33%);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+#addGalleryButton:hover {
+    background-color: hsl(183, 79%, 24%);
+}
+
+/* Gallery Section */
+.gallery-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-section h2 {
+    color: hsl(183, 52%, 33%);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Gallery Table */
+#galleryTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#galleryTable th,
+#galleryTable td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+#galleryTable th {
+    background-color: hsl(183, 52%, 33%);
+    color: white;
+}
+
+#galleryTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#galleryTable tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+/* Gallery Pagination */
+#galleryPagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#galleryPagination .pagination-button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: hsl(183, 52%, 33%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#galleryPagination .pagination-button:hover {
+    background-color: hsl(183, 79%, 24%);
+}
+
+#galleryPagination .pagination-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#galleryPageInfo {
+    margin: 0 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Responsive Gallery Table */
+@media (max-width: 768px) {
+    #galleryTable {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #galleryTable th,
+    #galleryTable td {
+        display: inline-block;
+        min-width: 120px;
+    }
+}
+
+/* Responsive Styles for Gallery */
+@media (max-width: 768px) {
+
+    .gallery-container input[type="file"],
+    .gallery-container input[type="text"],
+    .gallery-container select {
+        width: 90%;
+    }
+
+    #galleryTable {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #galleryTable th,
+    #galleryTable td {
+        display: inline-block;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    #galleryModal .modal-content h2 {
+        font-size: 1.5rem;
+    }
+
+    #addGalleryButton {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    #galleryPagination .pagination-button {
+        padding: 4px 8px;
+        font-size: 0.9rem;
+    }
+
+    #galleryPageInfo {
+        font-size: 0.9rem;
+    }
+}

@@ -1,4 +1,3 @@
-
 // Configure Toastr options
 toastr.options = {
   closeButton: true,
@@ -18,8 +17,6 @@ toastr.options = {
   hideMethod: "fadeOut",
   escapeHtml: false,
 };
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   // Sidebar and section management
@@ -220,8 +217,8 @@ document.addEventListener("DOMContentLoaded", function () {
             method: "POST",
             body: formData,
           });
-         const data = await response.json();
-         toastr.success(data.message || "Error uploading image");
+          const data = await response.json();
+          toastr.success(data.message || "Error uploading image");
         }
 
         // Clear input fields
@@ -354,7 +351,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initial fetch of images
   fetchImages();
-  
 
   // Client modal handlers
   openClientModal.addEventListener("click", () => {
@@ -419,12 +415,12 @@ document.addEventListener("DOMContentLoaded", function () {
       body: JSON.stringify({ name, trackingCode, email, phone, address }),
     });
 
-   const data = await response.json();
-   if (response.ok) {
-     toastr.success(data.message || "Client added successfully!"); // Show success message
-   } else {
-     toastr.error(data.message || "Error adding client"); // Show error message
-   }
+    const data = await response.json();
+    if (response.ok) {
+      toastr.success(data.message || "Client added successfully!"); // Show success message
+    } else {
+      toastr.error(data.message || "Error adding client"); // Show error message
+    }
 
     // Clear input fields
     document.getElementById("clientName").value = "";
@@ -481,12 +477,12 @@ document.addEventListener("DOMContentLoaded", function () {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(shipment),
       });
-     const data = await response.json();
-     if (response.ok) {
-       toastr.success(data.message || "Shipment updated successfully!"); // Show success message
-     } else {
-       toastr.error(data.message || "Error updating shipment"); // Show error message
-     }
+      const data = await response.json();
+      if (response.ok) {
+        toastr.success(data.message || "Shipment updated successfully!"); // Show success message
+      } else {
+        toastr.error(data.message || "Error updating shipment"); // Show error message
+      }
 
       // Fetch all shipments and update the table
       fetchShipments();
@@ -585,6 +581,147 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Fetch shipments on page load
   fetchShipments();
+});
+
+
+// Gallery section
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebarLinks = document.querySelectorAll(".sidebar-link");
+  const openGalleryModal = document.getElementById("openGalleryModal");
+  const gallerySection = document.getElementById("gallery-section");
+
+  // Sidebar link click event
+  sidebarLinks.forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const targetId = this.getAttribute("data-target");
+
+      // Show or hide the "Add to Gallery" button based on the active section
+      if (targetId === "gallery-section") {
+        openGalleryModal.style.display = "block"; // Show the button
+        gallerySection.style.display = "block"; // Show the gallery section
+      } else {
+        openGalleryModal.style.display = "none"; // Hide the button
+        gallerySection.style.display = "none"; // Hide the gallery section
+      }
+    });
+  });
+
+  // Open gallery modal when "Add to Gallery" button is clicked
+  const galleryModal = document.getElementById("galleryModal");
+  const closeGalleryModal = document.getElementById("closeGalleryModal");
+
+  openGalleryModal.addEventListener("click", () => {
+    galleryModal.style.display = "block";
+  });
+
+  // Close gallery modal
+  closeGalleryModal.addEventListener("click", () => {
+    galleryModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target === galleryModal) {
+      galleryModal.style.display = "none";
+    }
+  });
+
+  // Add event listener for the "Add to Gallery" button inside the modal
+  const addGalleryButton = document.getElementById("addGalleryButton");
+  const galleryTableBody = document
+    .getElementById("galleryTable")
+    .getElementsByTagName("tbody")[0];
+
+  addGalleryButton.addEventListener("click", () => {
+    const file = document.getElementById("galleryUpload").files[0];
+    const description = document.getElementById("galleryDescription").value;
+    const mediaType = document.getElementById("mediaType").value;
+
+    if (file && description) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const newRow = galleryTableBody.insertRow();
+        const mediaCell = newRow.insertCell(0);
+        const descriptionCell = newRow.insertCell(1);
+        const typeCell = newRow.insertCell(2);
+        const actionsCell = newRow.insertCell(3);
+
+        // Add media (image or video)
+        if (mediaType === "image") {
+          mediaCell.innerHTML = `<img src="${e.target.result}" alt="${description}" style="width: 100px; height: auto;">`;
+        } else {
+          mediaCell.innerHTML = `<video src="${e.target.result}" controls style="width: 100px; height: auto;"></video>`;
+        }
+
+        // Add description and type
+        descriptionCell.textContent = description;
+        typeCell.textContent = mediaType;
+
+        // Add edit and delete icons
+        actionsCell.innerHTML = `
+          <i class="fas fa-edit" style="cursor: pointer; margin-right: 10px;" onclick="editGalleryItem(this)"></i>
+          <i class="fas fa-trash" style="cursor: pointer;" onclick="deleteGalleryItem(this)"></i>
+        `;
+
+        toastr.success("Item added to gallery successfully!");
+        galleryModal.style.display = "none";
+
+        // Clear input fields
+        document.getElementById("galleryUpload").value = "";
+        document.getElementById("galleryDescription").value = "";
+      };
+      reader.readAsDataURL(file);
+    } else {
+      toastr.error("Please fill all fields and select a file.");
+    }
+  });
+
+  // Function to delete a gallery item
+  window.deleteGalleryItem = function (icon) {
+    const row = icon.closest("tr");
+    row.remove();
+    toastr.success("Item deleted from gallery successfully!");
+  };
+
+  // Function to edit a gallery item
+  window.editGalleryItem = function (icon) {
+    const row = icon.closest("tr");
+    const media = row.cells[0].innerHTML; // Media (image/video)
+    const description = row.cells[1].textContent; // Description
+    const mediaType = row.cells[2].textContent; // Type (Image/Video)
+
+    // Populate the modal with the selected item's data
+    document.getElementById("galleryUpload").value = ""; // Clear file input
+    document.getElementById("galleryDescription").value = description;
+    document.getElementById("mediaType").value = mediaType.toLowerCase();
+
+    // Show the gallery modal for editing
+    document.getElementById("galleryModal").style.display = "block";
+
+    // Update the "Add to Gallery" button to "Update"
+    const addGalleryButton = document.getElementById("addGalleryButton");
+    addGalleryButton.textContent = "Update";
+    addGalleryButton.onclick = function () {
+      updateGalleryItem(row);
+    };
+  };
+
+  // Function to update a gallery item
+  window.updateGalleryItem = function (row) {
+    const description = document.getElementById("galleryDescription").value;
+    const mediaType = document.getElementById("mediaType").value;
+
+    // Update the row in the table
+    row.cells[1].textContent = description;
+    row.cells[2].textContent =
+      mediaType.charAt(0).toUpperCase() + mediaType.slice(1);
+
+    // Close the modal
+    document.getElementById("galleryModal").style.display = "none";
+
+    // Show success message
+    toastr.success("Gallery item updated successfully!");
+  };
 });
 
 // Generate tracking code functionality
@@ -741,7 +878,6 @@ document.getElementById("noButton").addEventListener("click", function () {
 //       console.error("Error updating shipment:", error);
 //     });
 // });
-
 
 // Toastr js
 // Initialize an object to store cart items
